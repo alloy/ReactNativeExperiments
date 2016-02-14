@@ -1,8 +1,14 @@
 PODS:
   - React/Core (0.19.0)
+  - React/RCTText (0.19.0):
+    - React/Core
+  - React/RCTWebSocket (0.19.0):
+    - React/Core
 
 DEPENDENCIES:
   - React/Core (from `./node_modules/react-native`)
+  - React/RCTText (from `./node_modules/react-native`)
+  - React/RCTWebSocket (from `./node_modules/react-native`)
 
 EXTERNAL SOURCES:
   React:
@@ -11,6 +17,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   React: 788590e9bb1784fac953ded1b325f16d9e817090
 
-PODFILE CHECKSUM: fe123aec6748ffc6cd13107fd211c7c481677fa7
+PODFILE CHECKSUM: 77625d6a37c4646e4edbe02b7c5875f47fcf031e
 
 COCOAPODS: 1.0.0.beta.3
