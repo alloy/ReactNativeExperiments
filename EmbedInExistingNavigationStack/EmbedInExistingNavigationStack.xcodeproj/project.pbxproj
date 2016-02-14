@@ -29,6 +29,7 @@
 		5122D48B1C70B7670012EDD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5122D4921C70BE3F0012EDD1 /* RootComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootComponentViewController.h; sourceTree = "<group>"; };
 		5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootComponentViewController.m; sourceTree = "<group>"; };
+		5122D4971C70D3E60012EDD1 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,6 +91,7 @@
 		5122D4911C70BE0C0012EDD1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5122D4971C70D3E60012EDD1 /* index.ios.js */,
 				5122D4921C70BE3F0012EDD1 /* RootComponentViewController.h */,
 				5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */,
 			);
