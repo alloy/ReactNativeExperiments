@@ -9,14 +9,28 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-@interface AppDelegate ()
-
-@end
+#import <React/RCTBridge.h>
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // For production use, this `NSURL` could instead point to a pre-bundled file on disk:
+    //
+    //   NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    //
+    // To generate that file, run the curl command and add the output to your main Xcode build target:
+    //
+    //   curl http://localhost:8081/index.ios.bundle -o main.jsbundle
+    //
+    // We initialize the ReactNative bridge here for performance, so that it’s all loaded by the time we
+    // try to load a React component.
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+    self.bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
+                                        moduleProvider:nil
+                                         launchOptions:launchOptions];
+
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
