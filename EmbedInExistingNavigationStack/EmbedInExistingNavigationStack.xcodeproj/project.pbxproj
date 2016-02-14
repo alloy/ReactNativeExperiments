@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DB74D34539877CCEC8B88DD /* libPods-EmbedInExistingNavigationStack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */; };
 		5122D47C1C70B7670012EDD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D47B1C70B7670012EDD1 /* main.m */; };
 		5122D47F1C70B7670012EDD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D47E1C70B7670012EDD1 /* AppDelegate.m */; };
 		5122D4821C70B7670012EDD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4811C70B7670012EDD1 /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E56C2BD7C53A514D9B86434 /* Pods-EmbedInExistingNavigationStack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.debug.xcconfig"; sourceTree = "<group>"; };
 		5122D4771C70B7670012EDD1 /* EmbedInExistingNavigationStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbedInExistingNavigationStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5122D47B1C70B7670012EDD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5122D47D1C70B7670012EDD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,6 +29,8 @@
 		5122D48B1C70B7670012EDD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5122D4921C70BE3F0012EDD1 /* RootComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootComponentViewController.h; sourceTree = "<group>"; };
 		5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootComponentViewController.m; sourceTree = "<group>"; };
+		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
+		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB74D34539877CCEC8B88DD /* libPods-EmbedInExistingNavigationStack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +50,8 @@
 			children = (
 				5122D4791C70B7670012EDD1 /* EmbedInExistingNavigationStack */,
 				5122D4781C70B7670012EDD1 /* Products */,
+				7279C3023ED10FD1CF312795 /* Pods */,
+				FF5A2E031154CB200B0B4CC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +96,23 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		7279C3023ED10FD1CF312795 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E56C2BD7C53A514D9B86434 /* Pods-EmbedInExistingNavigationStack.debug.xcconfig */,
+				E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF5A2E031154CB200B0B4CC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5122D48E1C70B7670012EDD1 /* Build configuration list for PBXNativeTarget "EmbedInExistingNavigationStack" */;
 			buildPhases = (
+				25A309ED1C50AAAE901EDD8C /* Check Pods Manifest.lock */,
 				5122D4731C70B7670012EDD1 /* Sources */,
 				5122D4741C70B7670012EDD1 /* Frameworks */,
 				5122D4751C70B7670012EDD1 /* Resources */,
+				36312A9C059262F40ECDE774 /* Embed Pods Frameworks */,
+				788CC030A24599DE47C33729 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,6 +179,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25A309ED1C50AAAE901EDD8C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36312A9C059262F40ECDE774 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		788CC030A24599DE47C33729 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5122D4731C70B7670012EDD1 /* Sources */ = {
@@ -263,6 +338,7 @@
 		};
 		5122D48F1C70B7670012EDD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E56C2BD7C53A514D9B86434 /* Pods-EmbedInExistingNavigationStack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EmbedInExistingNavigationStack/Info.plist;
@@ -274,6 +350,7 @@
 		};
 		5122D4901C70B7670012EDD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EmbedInExistingNavigationStack/Info.plist;
@@ -302,6 +379,7 @@
 				5122D4901C70B7670012EDD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
