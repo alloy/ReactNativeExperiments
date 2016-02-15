@@ -16,18 +16,28 @@ var styles = React.StyleSheet.create({
 });
 
 class SimpleApp extends React.Component {
-  _onPressButton() {
+  pushReactViewController() {
       console.log('Host VC: 0x' + this.props.viewControllerID.toString(16));
-      NativeModules.ARNavigatorModule.pushViewController('/react-native-controller',
+      NativeModules.ARNavigatorModule.pushViewController('/react-controller',
                                                          true,
                                                          this.props.viewControllerID);
+  }
+    
+  pushNativeViewController() {
+    console.log('Host VC: 0x' + this.props.viewControllerID.toString(16));
+    NativeModules.ARNavigatorModule.pushViewController('/native-controller',
+                                                       true,
+                                                       this.props.viewControllerID);
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this._onPressButton.bind(this)}>
-            <Text>Tap to add a VC to the navigation stack.</Text>
+        <TouchableHighlight onPress={this.pushReactViewController.bind(this)}>
+            <Text>Tap to add a React VC to the navigation stack.</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
+            <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
       </View>
     )

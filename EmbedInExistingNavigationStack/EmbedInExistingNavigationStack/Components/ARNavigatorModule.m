@@ -1,5 +1,6 @@
 #import "ARNavigatorModule.h"
 
+#import "ViewController.h"
 #import "RootComponentViewController.h"
 
 @interface ARNavigatorModule ()
@@ -34,8 +35,10 @@
 // TODO: This would normally be e.g. ARSwitchBoard, which knows how to route all our VCs.
 - (UIViewController *)switchBoardVCForRoute:(NSString *)route;
 {
-    if ([route isEqualToString:@"/react-native-controller"]) {
+    if ([route isEqualToString:@"/react-controller"]) {
         return [RootComponentViewController new];
+    } else if ([route isEqualToString:@"/native-controller"]) {
+        return [ViewController new];
     }
     return nil;
 }
