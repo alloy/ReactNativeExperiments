@@ -13,7 +13,10 @@
 - (instancetype)init;
 {
     if ((self = [super init])) {
-        _viewControllers = [NSHashTable weakObjectsHashTable];
+        // Use pointer equality here so that we can zero out the VCs but ensure we
+        // don’t segfault when for whatever reason some component requests a VC that
+        // no longer exists.
+        _viewControllers = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory | NSPointerFunctionsObjectPointerPersonality];
     }
     return self;
 }
