@@ -18,12 +18,27 @@
 
 @implementation RootComponentViewController
 
+- (instancetype)init;
+{
+    if ((self = [super init])) {
+        self.title = [NSString stringWithFormat:@"%p", self];
+    }
+    return self;
+}
+
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:appDelegate.bridge moduleName:@"SimpleApp" initialProperties:@{ @"text": self.description, @"viewControllerID": @((NSInteger)self) }];
+    
+    // Register this VC with the navigator and pass this VC by reference to the React component.
+    [appDelegate.navigatorModule registerViewController:self];
+    NSDictionary *reactProps = @{ @"viewControllerID": @((NSInteger)self) };
+    
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:appDelegate.bridge
+                                                     moduleName:@"SimpleApp"
+                                              initialProperties:reactProps];
     
     [self.view addSubview:rootView];
     rootView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -34,7 +49,6 @@
         [rootView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor constant:0],
     ]];
 
-    [appDelegate.navigatorModule registerViewController:self];
     self.rootView = rootView;
 }
 

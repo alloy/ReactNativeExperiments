@@ -2,8 +2,6 @@
 
 #import "RootComponentViewController.h"
 
-#include <inttypes.h>
-
 @interface ARNavigatorModule ()
 @property (strong) NSHashTable *viewControllers;
 @end
