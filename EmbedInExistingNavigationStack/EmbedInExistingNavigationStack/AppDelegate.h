@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class RCTBridge;
+@class ARNavigatorModule, RCTBridge;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic, strong) ARNavigatorModule *navigatorModule;
 @property (nonatomic, strong) RCTBridge *bridge;
 
 @end

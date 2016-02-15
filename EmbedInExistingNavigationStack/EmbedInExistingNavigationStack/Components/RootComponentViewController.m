@@ -9,10 +9,11 @@
 #import "RootComponentViewController.h"
 #import "AppDelegate.h"
 
+#import "ARNavigatorModule.h"
 #import <React/RCTRootView.h>
 
 @interface RootComponentViewController ()
-
+@property (strong) RCTRootView *rootView;
 @end
 
 @implementation RootComponentViewController
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:appDelegate.bridge moduleName:@"SimpleApp" initialProperties:nil];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:appDelegate.bridge moduleName:@"SimpleApp" initialProperties:@{ @"text": self.description, @"viewControllerID": @((NSInteger)self) }];
     
     [self.view addSubview:rootView];
     rootView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -32,6 +33,9 @@
         [rootView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:0],
         [rootView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor constant:0],
     ]];
+
+    [appDelegate.navigatorModule registerViewController:self];
+    self.rootView = rootView;
 }
 
 @end
