@@ -15,6 +15,9 @@
 		5122D48A1C70B7670012EDD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5122D4881C70B7670012EDD1 /* LaunchScreen.storyboard */; };
 		5122D4941C70BE3F0012EDD1 /* RootComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */; };
 		5122D49C1C720DE20012EDD1 /* ARNavigatorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D49B1C720DE20012EDD1 /* ARNavigatorModule.m */; };
+		5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A01C729AF90012EDD1 /* ARImageViewManager.m */; };
+		5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A31C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m */; };
+		5122D4A81C72A09A0012EDD1 /* ARImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A71C72A09A0012EDD1 /* ARImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,13 @@
 		5122D4971C70D3E60012EDD1 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
 		5122D49A1C720DE20012EDD1 /* ARNavigatorModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARNavigatorModule.h; sourceTree = "<group>"; };
 		5122D49B1C720DE20012EDD1 /* ARNavigatorModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARNavigatorModule.m; sourceTree = "<group>"; };
+		5122D49F1C729AF90012EDD1 /* ARImageViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageViewManager.h; sourceTree = "<group>"; };
+		5122D4A01C729AF90012EDD1 /* ARImageViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageViewManager.m; sourceTree = "<group>"; };
+		5122D4A21C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AsyncImageLoading.h"; sourceTree = "<group>"; };
+		5122D4A31C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncImageLoading.m"; sourceTree = "<group>"; };
+		5122D4A51C729D010012EDD1 /* ARImage.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ARImage.js; sourceTree = "<group>"; };
+		5122D4A61C72A09A0012EDD1 /* ARImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARImageView.h; sourceTree = "<group>"; };
+		5122D4A71C72A09A0012EDD1 /* ARImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageView.m; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,7 +80,8 @@
 		5122D4791C70B7670012EDD1 /* EmbedInExistingNavigationStack */ = {
 			isa = PBXGroup;
 			children = (
-				5122D4911C70BE0C0012EDD1 /* Components */,
+				5122D49D1C7299E90012EDD1 /* ARComponents */,
+				5122D4911C70BE0C0012EDD1 /* ARReact */,
 				5122D47D1C70B7670012EDD1 /* AppDelegate.h */,
 				5122D47E1C70B7670012EDD1 /* AppDelegate.m */,
 				5122D4801C70B7670012EDD1 /* ViewController.h */,
@@ -91,16 +102,46 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5122D4911C70BE0C0012EDD1 /* Components */ = {
+		5122D4911C70BE0C0012EDD1 /* ARReact */ = {
 			isa = PBXGroup;
 			children = (
+				5122D4A91C72A8960012EDD1 /* ARImage */,
 				5122D4971C70D3E60012EDD1 /* index.ios.js */,
+				5122D4A51C729D010012EDD1 /* ARImage.js */,
 				5122D4921C70BE3F0012EDD1 /* RootComponentViewController.h */,
 				5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */,
 				5122D49A1C720DE20012EDD1 /* ARNavigatorModule.h */,
 				5122D49B1C720DE20012EDD1 /* ARNavigatorModule.m */,
 			);
-			path = Components;
+			path = ARReact;
+			sourceTree = "<group>";
+		};
+		5122D49D1C7299E90012EDD1 /* ARComponents */ = {
+			isa = PBXGroup;
+			children = (
+				5122D49E1C729A080012EDD1 /* ARImage */,
+			);
+			path = ARComponents;
+			sourceTree = "<group>";
+		};
+		5122D49E1C729A080012EDD1 /* ARImage */ = {
+			isa = PBXGroup;
+			children = (
+				5122D49F1C729AF90012EDD1 /* ARImageViewManager.h */,
+				5122D4A01C729AF90012EDD1 /* ARImageViewManager.m */,
+				5122D4A21C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.h */,
+				5122D4A31C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m */,
+				5122D4A61C72A09A0012EDD1 /* ARImageView.h */,
+				5122D4A71C72A09A0012EDD1 /* ARImageView.m */,
+			);
+			path = ARImage;
+			sourceTree = "<group>";
+		};
+		5122D4A91C72A8960012EDD1 /* ARImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARImage;
 			sourceTree = "<group>";
 		};
 		7279C3023ED10FD1CF312795 /* Pods */ = {
@@ -241,9 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5122D49C1C720DE20012EDD1 /* ARNavigatorModule.m in Sources */,
+				5122D4A81C72A09A0012EDD1 /* ARImageView.m in Sources */,
 				5122D4821C70B7670012EDD1 /* ViewController.m in Sources */,
 				5122D47F1C70B7670012EDD1 /* AppDelegate.m in Sources */,
+				5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */,
 				5122D4941C70BE3F0012EDD1 /* RootComponentViewController.m in Sources */,
+				5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */,
 				5122D47C1C70B7670012EDD1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
