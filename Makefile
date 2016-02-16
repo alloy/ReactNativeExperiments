@@ -1,7 +1,7 @@
 ROOT = $(shell pwd)
 
 embed-in-existing-navigation-stack:
-	cd node_modules/react-native; npm run start -- --root "$(ROOT)/EmbedInExistingNavigationStack/EmbedInExistingNavigationStack/Components"
+	cd node_modules/react-native; npm run start -- --root "$(ROOT)/EmbedInExistingNavigationStack/EmbedInExistingNavigationStack/ARReact"
 
 bootstrap:
 	brew install node flow
