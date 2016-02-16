@@ -10,7 +10,8 @@ var {
 
 // TODO: I tried adding the components dir to the package manager with the `--root` option,
 //       but to no avail, so using this relative style for now.
-var ARImage = require('../ARComponents/ARImage');
+var ARArtworkComponent = require('../ARComponents/ARArtworkComponent');
+console.log(ARArtworkComponent);
 
 var styles = React.StyleSheet.create({
   container: {
@@ -18,10 +19,10 @@ var styles = React.StyleSheet.create({
     backgroundColor: 'red'
   },
   imageContainer: {
-    //flexDirection: 'column',
-    flexDirection: 'row',
-    width: 100,
-    height: 100,
+    flexDirection: 'column',
+    //flexDirection: 'row',
+    width: 150,
+    //height: 100,
   },
 });
 
@@ -41,17 +42,31 @@ class SimpleApp extends React.Component {
   }
 
   render() {
+    let artwork = {
+      title: "Some Title",
+      sale_message: "Gazillion $",
+      image: {
+        url: "https://d32dm0rphc51dk.cloudfront.net/utKCPzmMuvXXb_x-beMWZQ/tall.jpg",
+        aspect_ratio: 0.66538461538462,
+      },
+      artist: {
+        name: "Salvador Dali",
+      },
+      partner: {
+        name: "Sotheby’s",
+      },
+    };
     return (
       <View style={styles.container}>
-        <View style={styles.imageContainer}>
-          <ARImage aspectRatio={0.66538461538462} source="https://d32dm0rphc51dk.cloudfront.net/utKCPzmMuvXXb_x-beMWZQ/tall.jpg" />
-        </View>
         <TouchableHighlight onPress={this.pushReactViewController.bind(this)}>
-            <Text>Tap to add a React VC to the navigation stack.</Text>
+          <Text>Tap to add a React VC to the navigation stack.</Text>
         </TouchableHighlight>
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
-            <Text>Tap to add a Native VC to the navigation stack.</Text>
+          <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
+        <View style={styles.imageContainer}>
+          <ARArtworkComponent artwork={artwork} />
+        </View>
       </View>
     );
   }
