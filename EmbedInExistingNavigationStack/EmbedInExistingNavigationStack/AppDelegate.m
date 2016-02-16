@@ -33,9 +33,9 @@
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
 
     // TODO: The module provider block is actually supposed to return a new instance every time!
-    __block int count = 0;
+    // It's requested again when reloading during dev.
     self.bridge = [[RCTBridge alloc] initWithBundleURL:jsCodeLocation
-                                        moduleProvider:^{ NSAssert(count == 0, @"Ohnoes"); count++; return @[navigator]; }
+                                        moduleProvider:^{ return @[navigator]; }
                                          launchOptions:launchOptions];
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
