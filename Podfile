@@ -10,4 +10,6 @@ target 'EmbedInExistingNavigationStack' do
     #'RCTImage',
     #'RCTNetwork',
   ]
+
+  pod 'SDWebImage', '>= 3.7.2'
 end

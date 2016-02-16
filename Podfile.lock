@@ -4,11 +4,15 @@ PODS:
     - React/Core
   - React/RCTWebSocket (0.19.0):
     - React/Core
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - React/Core (from `./node_modules/react-native`)
   - React/RCTText (from `./node_modules/react-native`)
   - React/RCTWebSocket (from `./node_modules/react-native`)
+  - SDWebImage (>= 3.7.2)
 
 EXTERNAL SOURCES:
   React:
@@ -16,7 +20,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   React: 788590e9bb1784fac953ded1b325f16d9e817090
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 77625d6a37c4646e4edbe02b7c5875f47fcf031e
+PODFILE CHECKSUM: e9eb7ad37fcf83dd08a2430b47d54824fbacefd1
 
 COCOAPODS: 1.0.0.beta.3
