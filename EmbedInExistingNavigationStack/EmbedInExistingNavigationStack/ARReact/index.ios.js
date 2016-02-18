@@ -36,34 +36,34 @@ let artworks = [
       "name": "Gallery Nosco"
     }
   },
-  {
-    "title": "CHAMPAGNE FORMICA FLAG",
-    "sale_message": null,
-    "image": {
-      "url": "https://d32dm0rphc51dk.cloudfront.net/08yIgFpiD7kOr_EWsbMubQ/tall.jpg",
-      "aspect_ratio": 1.29
-    },
-    "artist": {
-      "name": "Banksy"
-    },
-    "partner": {
-      "name": "Gallery Nosco"
-    }
-  },
-  {
-    "title": "Blowpop Records",
-    "sale_message": "Contact For Price",
-    "image": {
-      "url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
-      "aspect_ratio": 1
-    },
-    "artist": {
-      "name": "Banksy"
-    },
-    "partner": {
-      "name": "Julien's Auctions: Street Art Now February 2016"
-    }
-  },
+  //{
+    //"title": "CHAMPAGNE FORMICA FLAG",
+    //"sale_message": null,
+    //"image": {
+      //"url": "https://d32dm0rphc51dk.cloudfront.net/08yIgFpiD7kOr_EWsbMubQ/tall.jpg",
+      //"aspect_ratio": 1.29
+    //},
+    //"artist": {
+      //"name": "Banksy"
+    //},
+    //"partner": {
+      //"name": "Gallery Nosco"
+    //}
+  //},
+  //{
+    //"title": "Blowpop Records",
+    //"sale_message": "Contact For Price",
+    //"image": {
+      //"url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
+      //"aspect_ratio": 1
+    //},
+    //"artist": {
+      //"name": "Banksy"
+    //},
+    //"partner": {
+      //"name": "Julien's Auctions: Street Art Now February 2016"
+    //}
+  //},
   //{
     //"title": "Vettriano, Beach Rescue",
     //"sale_message": null,
@@ -208,20 +208,6 @@ class SimpleApp extends React.Component {
     NativeModules.ARNavigatorModule.pushViewController('/native-controller',
                                                        true,
                                                        this.props.viewControllerID);
-  }
-
-  onArtworkComponentLayout(size) {
-    console.log(size);
-}
-
-  onArtworkLayout(layout) {
-    console.log('ARTWORK DID LAYOUT', layout);
-  }
-
-  renderArtworks() {
-    return artworks.map(function(artwork, key) {
-      return <ARArtworkComponent onArtworkLayout={this.onArtworkLayout} artwork={artwork} key={key} />
-    }.bind(this));
   }
 
   render() {

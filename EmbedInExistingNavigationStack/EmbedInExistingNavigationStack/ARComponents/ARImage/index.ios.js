@@ -20,7 +20,6 @@ class ARImage extends React.Component {
   //
   onImageLayout(event: LayoutEvent) {
     let layout = event.nativeEvent.layout;
-console.log(layout);
     if (layout.width > 0 && layout.height > 0) {
       let onImageLayout = this.props.onImageLayout;
       if (onImageLayout != undefined) {
