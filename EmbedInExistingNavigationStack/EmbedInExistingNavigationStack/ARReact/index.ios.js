@@ -50,20 +50,20 @@ let artworks = [
       "name": "Gallery Nosco"
     }
   },
-  //{
-    //"title": "Blowpop Records",
-    //"sale_message": "Contact For Price",
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
-      //"aspect_ratio": 1
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Julien's Auctions: Street Art Now February 2016"
-    //}
-  //},
+  {
+    "title": "Blowpop Records",
+    "sale_message": "Contact For Price",
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
+      "aspect_ratio": 1
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Julien's Auctions: Street Art Now February 2016"
+    }
+  },
   //{
     //"title": "Vettriano, Beach Rescue",
     //"sale_message": null,
@@ -210,28 +210,21 @@ class SimpleApp extends React.Component {
                                                        this.props.viewControllerID);
   }
 
+  onArtworkComponentLayout(size) {
+    console.log(size);
+}
+
+  onArtworkLayout(layout) {
+    console.log('ARTWORK DID LAYOUT', layout);
+  }
+
   renderArtworks() {
     return artworks.map(function(artwork, key) {
-      return <ARArtworkComponent artwork={artwork} key={key} />
-    });
+      return <ARArtworkComponent onArtworkLayout={this.onArtworkLayout} artwork={artwork} key={key} />
+    }.bind(this));
   }
 
   render() {
-    let artwork = {
-      title: "Some Title",
-      sale_message: "Gazillion $",
-      image: {
-        url: "https://d32dm0rphc51dk.cloudfront.net/utKCPzmMuvXXb_x-beMWZQ/tall.jpg",
-        aspect_ratio: 0.66538461538462,
-      },
-      artist: {
-        name: "Salvador Dali",
-      },
-      partner: {
-        name: "Sotheby’s",
-      },
-};
-console.log(this.renderArtworks());
     return (
       <View style={styles.container}>
         <TouchableHighlight onPress={this.pushReactViewController.bind(this)}>
@@ -240,9 +233,7 @@ console.log(this.renderArtworks());
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARMasonryGridComponent>
-          {this.renderArtworks()}
-        </ARMasonryGridComponent>
+        <ARMasonryGridComponent artworks={artworks} />
       </View>
     );
   }

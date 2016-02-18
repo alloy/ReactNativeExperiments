@@ -9,10 +9,31 @@ var {
 var ARImage = require('../ARImage');
 
 class ARArtworkComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { didLayoutImage: false };
+    this.onLayout = this.onLayout.bind(this);
+    this.onImageLayout = this.onImageLayout.bind(this);
+  }
+
+  onImageLayout() {
+    this.state.didLayoutImage = true;
+  }
+
+  onLayout(event) {
+    if (this.state.didLayoutImage) {
+      let onArtworkLayout = this.props.onArtworkLayout;
+      if (onArtworkLayout != undefined) {
+        onArtworkLayout(event.nativeEvent.layout)
+      }
+    }
+  }
+
   render() {
+    let onLayout = this.props.onArtworkLayout == undefined ? undefined : this.onLayout;
     return (
-      <View>
-        <ARImage aspectRatio={this.props.artwork.image.aspect_ratio} source={this.props.artwork.image.url} />
+      <View onLayout={onLayout}>
+        <ARImage onImageLayout={this.onImageLayout} aspectRatio={this.props.artwork.image.aspect_ratio} source={this.props.artwork.image.url} />
         <Text>{this.props.artwork.artist.name}</Text>
         <Text>{this.props.artwork.title}</Text>
         <Text>{this.props.artwork.partner.name}</Text>
