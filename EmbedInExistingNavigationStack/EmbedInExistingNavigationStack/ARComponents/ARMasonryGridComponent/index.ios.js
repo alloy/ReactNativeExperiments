@@ -83,8 +83,23 @@ class ARMasonryGridComponent extends React.Component {
 
   renderSections() {
     console.log('RENDER SECTIONS!');
+
+    let sectionedArtworks = [];
+    for (var i = 0; i < this.props.sectionCount; i++) {
+      sectionedArtworks.push([]);
+    };
+    // TODO: This needs to perform layouting.
+    for (var i = 0; i < this.props.artworks.length; i++) {
+      let section = sectionedArtworks[i % this.props.sectionCount];
+      section.push(this.props.artworks[i]);
+    }
+
     let sections = [];
     for (var i = 0; i < this.props.sectionCount; i++) {
+      let artworkComponents = sectionedArtworks[i].map(function(artwork, key) {
+        return <ARArtworkComponent artwork={artwork} key={key} />;
+      });
+
       let style = {
         width: this.state.sectionDimension,
         marginRight: (i == this.props.sectionCount-1 ? 0 : this.props.sectionMargin), // TODO: No built-in flex way to do this?
@@ -94,6 +109,7 @@ class ARMasonryGridComponent extends React.Component {
       };
       sections.push(
         <View style={style} key={i}>
+          {artworkComponents}
         </View>
       );
     }

@@ -36,62 +36,62 @@ let artworks = [
       "name": "Gallery Nosco"
     }
   },
-  //{
-    //"title": "CHAMPAGNE FORMICA FLAG",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/08yIgFpiD7kOr_EWsbMubQ/tall.jpg",
-      //"aspect_ratio": 1.29
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Gallery Nosco"
-    //}
-  //},
-  //{
-    //"title": "Blowpop Records",
-    //"sale_message": "Contact For Price",
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
-      //"aspect_ratio": 1
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Julien's Auctions: Street Art Now February 2016"
-    //}
-  //},
-  //{
-    //"title": "Vettriano, Beach Rescue",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/DH1GuPHEOITaSFgEjOLhTA/tall.jpg",
-      //"aspect_ratio": 1.25
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
-  //{
-    //"title": "Girl and Balloon (Diptych)",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/2i8Rw4xP9x-3PLeLRvYaSw/tall.jpg",
-      //"aspect_ratio": 0.97
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
+  {
+    "title": "CHAMPAGNE FORMICA FLAG",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/08yIgFpiD7kOr_EWsbMubQ/tall.jpg",
+      "aspect_ratio": 1.29
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Gallery Nosco"
+    }
+  },
+  {
+    "title": "Blowpop Records",
+    "sale_message": "Contact For Price",
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/H-KoAx18Sq6UFiwMjmTtPw/normalized.jpg",
+      "aspect_ratio": 1
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Julien's Auctions: Street Art Now February 2016"
+    }
+  },
+  {
+    "title": "Vettriano, Beach Rescue",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/DH1GuPHEOITaSFgEjOLhTA/tall.jpg",
+      "aspect_ratio": 1.25
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
+  {
+    "title": "Girl and Balloon (Diptych)",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/2i8Rw4xP9x-3PLeLRvYaSw/tall.jpg",
+      "aspect_ratio": 0.97
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
   //{
     //"title": "Kids on Guns",
     //"sale_message": null,
