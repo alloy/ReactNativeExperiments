@@ -1,4 +1,6 @@
 PODS:
+  - ARCollectionViewMasonryLayout (2.2.0)
+  - FLKAutoLayout (0.2.1)
   - React/Core (0.19.0)
   - React/RCTNetwork (0.19.0):
     - React/Core
@@ -11,6 +13,8 @@ PODS:
   - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
+  - ARCollectionViewMasonryLayout (from `https://github.com/ashfurrow/ARCollectionViewMasonryLayout`)
+  - FLKAutoLayout (from `https://github.com/alloy/FLKAutoLayout.git`, branch `add-support-for-layout-guides-take-2`)
   - React/Core (from `./node_modules/react-native`)
   - React/RCTNetwork (from `./node_modules/react-native`)
   - React/RCTText (from `./node_modules/react-native`)
@@ -18,13 +22,28 @@ DEPENDENCIES:
   - SDWebImage (>= 3.7.2)
 
 EXTERNAL SOURCES:
+  ARCollectionViewMasonryLayout:
+    :git: https://github.com/ashfurrow/ARCollectionViewMasonryLayout
+  FLKAutoLayout:
+    :branch: add-support-for-layout-guides-take-2
+    :git: https://github.com/alloy/FLKAutoLayout.git
   React:
     :path: ./node_modules/react-native
 
+CHECKOUT OPTIONS:
+  ARCollectionViewMasonryLayout:
+    :commit: 07d7fa7d95a19f2bcd1324b4e4d61747a7cf31c4
+    :git: https://github.com/ashfurrow/ARCollectionViewMasonryLayout
+  FLKAutoLayout:
+    :commit: 96d9de47afde9ff2d13c25275415677cdbf4520d
+    :git: https://github.com/alloy/FLKAutoLayout.git
+
 SPEC CHECKSUMS:
+  ARCollectionViewMasonryLayout: 9e87541c1d59cd9e6f538c19bbed3f52ceeef421
+  FLKAutoLayout: 9db6b30c2008d230da608e62c607b11c23b942e6
   React: 788590e9bb1784fac953ded1b325f16d9e817090
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
-PODFILE CHECKSUM: 8ee371ab1e7bce4ad4058190135ce3a47aa1098b
+PODFILE CHECKSUM: 9bb087c9e44c78cc7674b289a6d027a96d5c35eb
 
 COCOAPODS: 1.0.0.beta.3
