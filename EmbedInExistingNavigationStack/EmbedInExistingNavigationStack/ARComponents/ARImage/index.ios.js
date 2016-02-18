@@ -2,30 +2,26 @@
 
 var React = require('react-native');
 
-var { requireNativeComponent } = React;
+var { View, requireNativeComponent } = React;
 
 class ARImage extends React.Component {
+  static defaultProps = {
+    aspectRatio: 1,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       backgroundColor: 'grey',
     };
-
-    this.onImageLayout = this.onImageLayout.bind(this);
+    this.onLayout = this.onLayout.bind(this);
   }
 
-  // Only change the state if either of the dimensions has not been calculated yet.
-  //
   // TODO: dynamically calculate the aspect ratio by asking the native image?
   //
-  onImageLayout(event: LayoutEvent) {
+  onLayout(event: LayoutEvent) {
     let layout = event.nativeEvent.layout;
-    if (layout.width > 0 && layout.height > 0) {
-      let onImageLayout = this.props.onImageLayout;
-      if (onImageLayout != undefined) {
-        onImageLayout(layout);
-      }
-    } else if (layout.width > 0) {
+    if (layout.width > 0) {
       let height = layout.width / this.props.aspectRatio;
       this.setState({ width: layout.width, height: height });
     } else if (layout.height > 0) {
@@ -35,7 +31,11 @@ class ARImage extends React.Component {
   }
 
   render() {
-    return <ARNativeImage style={this.state} onLayout={this.onImageLayout} {...this.props} />;
+    return (
+      <View onLayout={this.onLayout} accessibilityLabel='ARImage Container'>
+        <ARNativeImage style={this.state} {...this.props} />
+      </View>
+    );
   }
 }
 
@@ -53,3 +53,4 @@ ARImage.propTypes = {
 
 var ARNativeImage = requireNativeComponent('ARImageView', ARImage);
 module.exports = ARImage;
+

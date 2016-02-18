@@ -18,6 +18,7 @@
 		5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A01C729AF90012EDD1 /* ARImageViewManager.m */; };
 		5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A31C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m */; };
 		5122D4A81C72A09A0012EDD1 /* ARImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4A71C72A09A0012EDD1 /* ARImageView.m */; };
+		5122D4B41C7607BE0012EDD1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 5122D4B31C7607BE0012EDD1 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5122D4A71C72A09A0012EDD1 /* ARImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARImageView.m; sourceTree = "<group>"; };
 		5122D4AA1C73D0480012EDD1 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
 		5122D4AF1C73D90D0012EDD1 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
+		5122D4B31C7607BE0012EDD1 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				5122D47E1C70B7670012EDD1 /* AppDelegate.m */,
 				5122D4801C70B7670012EDD1 /* ViewController.h */,
 				5122D4811C70B7670012EDD1 /* ViewController.m */,
+				5122D4B31C7607BE0012EDD1 /* main.jsbundle */,
 				5122D4861C70B7670012EDD1 /* Assets.xcassets */,
 				5122D4881C70B7670012EDD1 /* LaunchScreen.storyboard */,
 				5122D48B1C70B7670012EDD1 /* Info.plist */,
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5122D4B41C7607BE0012EDD1 /* main.jsbundle in Resources */,
 				5122D48A1C70B7670012EDD1 /* LaunchScreen.storyboard in Resources */,
 				5122D4871C70B7670012EDD1 /* Assets.xcassets in Resources */,
 			);

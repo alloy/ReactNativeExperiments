@@ -38,7 +38,7 @@ class ARMasonryGridComponent extends React.Component {
   //
   onLayout(event: LayoutEvent) {
     let layout = event.nativeEvent.layout;
-    console.log('GRID LAYOUT', layout);
+    //console.log('GRID LAYOUT', layout);
     if (layout.width > 0) {
       // This is the sum of all margins in between sections, so do not count to the right of last column.
       let sectionMargins = this.props.sectionMargin * (this.props.sectionCount - 1);
@@ -47,7 +47,7 @@ class ARMasonryGridComponent extends React.Component {
   }
 
   renderSections() {
-    console.log('RENDER SECTIONS!');
+    //console.log('RENDER SECTIONS!');
 
     let sectionedArtworks = [];
     for (var i = 0; i < this.props.sectionCount; i++) {
@@ -78,6 +78,7 @@ class ARMasonryGridComponent extends React.Component {
       }
 
       let style = {
+        flex: 1,
         flexDirection: 'column',
         width: this.state.sectionDimension,
         marginRight: (i == this.props.sectionCount-1 ? 0 : this.props.sectionMargin), // TODO: No built-in flex way to do this?
@@ -95,7 +96,7 @@ class ARMasonryGridComponent extends React.Component {
 
   render() {
     this.renderPass++;
-    console.log('RENDER PASS: ' + this.renderPass, this.state);
+    //console.log('RENDER PASS: ' + this.renderPass, this.state);
 
     let style = {
       flexDirection: 'row',
