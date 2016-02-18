@@ -23,6 +23,7 @@ class ARMasonryGridComponent extends React.Component {
     sectionDirection: 'column',
     sectionCount: 2,
     sectionMargin: 8,
+    itemMargin: 8,
   }
 
   constructor(props) {
@@ -30,7 +31,6 @@ class ARMasonryGridComponent extends React.Component {
     this.renderPass = 0;
     this.state = { sectionDimension: 0 };
     this.onLayout = this.onLayout.bind(this);
-    //this.onArtworkLayout = this.onArtworkLayout.bind(this);
   }
 
   // TODO: Currently settings this from the scrollview’s onLayout prop,
@@ -46,41 +46,6 @@ class ARMasonryGridComponent extends React.Component {
     }
   }
 
-  //getAutoResponsiveProps() {
-    //return {
-      //itemMargin: 8
-    //};
-  //}
-
-  //onArtworkLayout(layout, key) {
-    //if (this.state.itemStyle.width > 0) {
-      //console.log('onArtworkLayout');
-      //this.state.artworkStyles[key] = { width: this.state.itemStyle.width, height: layout.height };
-      //console.log(this.state.artworkStyles);
-      //this.forceUpdate();
-    //}
-  //}
-
-  //renderChildren() {
-    //if (this.state.itemStyle.width == 0) {
-      //return;
-    //}
-    //return this.props.artworks.map(function(artwork, key) {
-      //var onArtworkLayout = undefined;
-      //var style = this.state.artworkStyles[key];
-      //if (style == undefined) {
-        //style = this.state.itemStyle;
-        //onArtworkLayout = function(layout) { this.onArtworkLayout(layout, key) }.bind(this);
-      //} else {
-        //console.log('HAVE ALL DIMENSIONS FOR: ', key, style);
-      //}
-      //console.log('STYLE', style);
-      //return (
-        //<ARArtworkComponent onArtworkLayout={onArtworkLayout} style={style} artwork={artwork} key={key} />
-      //);
-    //}, this);
-  //}
-
   renderSections() {
     console.log('RENDER SECTIONS!');
 
@@ -88,27 +53,39 @@ class ARMasonryGridComponent extends React.Component {
     for (var i = 0; i < this.props.sectionCount; i++) {
       sectionedArtworks.push([]);
     };
-    // TODO: This needs to perform layouting.
+    // TODO: This needs to perform layouting, i.e. in which section an artwork should go
     for (var i = 0; i < this.props.artworks.length; i++) {
       let section = sectionedArtworks[i % this.props.sectionCount];
       section.push(this.props.artworks[i]);
     }
 
+    let spacerStyle = {
+      height: this.props.itemMargin,
+      // TODO: For debugging only
+      backgroundColor: 'yellow',
+    };
+
     let sections = [];
     for (var i = 0; i < this.props.sectionCount; i++) {
-      let artworkComponents = sectionedArtworks[i].map(function(artwork, key) {
-        return <ARArtworkComponent artwork={artwork} key={key} />;
-      });
+      let artworkComponents = [];
+      let artworks = sectionedArtworks[i];
+      for (var j = 0; j < artworks.length; j++) {
+        artworkComponents.push(<ARArtworkComponent artwork={artworks[j]} key={'artwork-'+j} />);
+        // TODO: Setting a marginBottom on the artwork component didn’t work, so using a spacer view for now.
+        if (j < artworks.length-1) {
+          artworkComponents.push(<View style={spacerStyle} key={'spacer-'+j} accessibilityLabel='Spacer View' />);
+        }
+      }
 
       let style = {
+        flexDirection: 'column',
         width: this.state.sectionDimension,
         marginRight: (i == this.props.sectionCount-1 ? 0 : this.props.sectionMargin), // TODO: No built-in flex way to do this?
-        // These are for debugging only
-        height: 200,
+        // TODO: For debugging only
         backgroundColor: ['red', 'blue'][i],
       };
       sections.push(
-        <View style={style} key={i}>
+        <View style={style} key={i} accessibilityLabel={'Section ' + i}>
           {artworkComponents}
         </View>
       );
@@ -120,10 +97,16 @@ class ARMasonryGridComponent extends React.Component {
     this.renderPass++;
     console.log('RENDER PASS: ' + this.renderPass, this.state);
 
+    let style = {
+      flexDirection: 'row',
+      // TODO: For debugging only
+      backgroundColor: 'yellow',
+    };
+
     let artworks = this.state.sectionDimension ? this.renderSections() : null;
     return (
-      <ScrollView onLayout={this.onLayout}>
-        <View style={{ flexDirection: 'row' }}>
+      <ScrollView onLayout={this.onLayout} accessibilityLabel='ARMasonryGrid ScrollView'>
+        <View style={style} accessibilityLabel='ARMasonryGrid Content View'>
           {artworks}
         </View>
       </ScrollView>

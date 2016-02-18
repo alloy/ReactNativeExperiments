@@ -8,7 +8,7 @@ class ARImage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: {},
+      backgroundColor: 'grey',
     };
 
     this.onImageLayout = this.onImageLayout.bind(this);
@@ -27,15 +27,15 @@ class ARImage extends React.Component {
       }
     } else if (layout.width > 0) {
       let height = layout.width / this.props.aspectRatio;
-      this.setState({ size: { width: layout.width, height: height } });
+      this.setState({ width: layout.width, height: height });
     } else if (layout.height > 0) {
       let width = layout.height * this.props.aspectRatio;
-      this.setState({ size: { width: width, height: layout.height } });
+      this.setState({ width: width, height: layout.height });
     }
   }
 
   render() {
-    return <ARNativeImage style={this.state.size} onLayout={this.onImageLayout} {...this.props} />;
+    return <ARNativeImage style={this.state} onLayout={this.onImageLayout} {...this.props} />;
   }
 }
 

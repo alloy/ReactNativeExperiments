@@ -92,76 +92,76 @@ let artworks = [
       "name": "Lazarides"
     }
   },
-  //{
-    //"title": "Kids on Guns",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/WgNYm-T_7permhh7yrcA4Q/tall.jpg",
-      //"aspect_ratio": 1.01
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
-  //{
-    //"title": "The Key to Making Great Art is all in the Composition",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/f9_pLsTq_pAZnYTdXnw_cQ/tall.jpg",
-      //"aspect_ratio": 1
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
-  //{
-    //"title": "Graffiti Cottage",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/tNtyTyg30oawwsYszmEiQQ/tall.jpg",
-      //"aspect_ratio": 1.16
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
-  //{
-    //"title": "Keep It Real",
-    //"sale_message": null,
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/N3Jzl43P03wezA3KGKhOwA/tall.jpg",
-      //"aspect_ratio": 0.88
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //},
-  //{
-    //"title": "Kissing Coppers",
-    //"sale_message": "Contact For Price",
-    //"image": {
-      //"url": "https://d32dm0rphc51dk.cloudfront.net/O1M6sRtdF_r5OcGeZmsU4A/tall.jpg",
-      //"aspect_ratio": 0.81
-    //},
-    //"artist": {
-      //"name": "Banksy"
-    //},
-    //"partner": {
-      //"name": "Lazarides"
-    //}
-  //}
+  {
+    "title": "Kids on Guns",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/WgNYm-T_7permhh7yrcA4Q/tall.jpg",
+      "aspect_ratio": 1.01
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
+  {
+    "title": "The Key to Making Great Art is all in the Composition",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/f9_pLsTq_pAZnYTdXnw_cQ/tall.jpg",
+      "aspect_ratio": 1
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
+  {
+    "title": "Graffiti Cottage",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/tNtyTyg30oawwsYszmEiQQ/tall.jpg",
+      "aspect_ratio": 1.16
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
+  {
+    "title": "Keep It Real",
+    "sale_message": null,
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/N3Jzl43P03wezA3KGKhOwA/tall.jpg",
+      "aspect_ratio": 0.88
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  },
+  {
+    "title": "Kissing Coppers",
+    "sale_message": "Contact For Price",
+    "image": {
+      "url": "https://d32dm0rphc51dk.cloudfront.net/O1M6sRtdF_r5OcGeZmsU4A/tall.jpg",
+      "aspect_ratio": 0.81
+    },
+    "artist": {
+      "name": "Banksy"
+    },
+    "partner": {
+      "name": "Lazarides"
+    }
+  }
 ];
 
 

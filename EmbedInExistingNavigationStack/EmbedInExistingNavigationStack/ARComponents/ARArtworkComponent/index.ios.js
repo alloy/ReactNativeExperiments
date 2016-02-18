@@ -31,13 +31,19 @@ class ARArtworkComponent extends React.Component {
 
   render() {
     let onLayout = this.props.onArtworkLayout == undefined ? undefined : this.onLayout;
+    let artwork = this.props.artwork;
+    let optionals = [];
+    // TODO partner ?
+    if (artwork.sale_message) {
+      optionals.push(<Text key="sale_message">{this.props.artwork.sale_message}</Text>);
+    }
     return (
       <View onLayout={onLayout}>
-        <ARImage onImageLayout={this.onImageLayout} aspectRatio={this.props.artwork.image.aspect_ratio} source={this.props.artwork.image.url} />
-        <Text>{this.props.artwork.artist.name}</Text>
-        <Text>{this.props.artwork.title}</Text>
-        <Text>{this.props.artwork.partner.name}</Text>
-        <Text>{this.props.artwork.sale_message}</Text>
+        <ARImage onImageLayout={this.onImageLayout} aspectRatio={artwork.image.aspect_ratio} source={artwork.image.url} />
+        <Text>{artwork.artist.name}</Text>
+        <Text>{artwork.title}</Text>
+        <Text>{artwork.partner.name}</Text>
+        {optionals}
       </View>
     );
   }
