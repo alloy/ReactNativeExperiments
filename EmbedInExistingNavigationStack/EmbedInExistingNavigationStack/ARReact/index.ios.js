@@ -1438,8 +1438,8 @@ var {
 // TODO: I tried adding the components dir to the package manager with the `--root` option,
 //       but to no avail, so using this relative style for now.
 //let ARArtworkComponent = require('../ARComponents/ARArtworkComponent');
-//let ARMasonryGridComponent = require('../ARComponents/ARMasonryGridComponent');
-let ARMasonryGridComponent = require('../ARComponents/ARNativeMasonryGridComponent');
+let ARMasonryGridComponent = require('../ARComponents/ARMasonryGridComponent');
+//let ARMasonryGridComponent = require('../ARComponents/ARNativeMasonryGridComponent');
 
 
 var styles = React.StyleSheet.create({
@@ -1480,7 +1480,7 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARMasonryGridComponent style={{height: 300}} artworks={artworks} />
+        <ARMasonryGridComponent artworks={artworks} />
       </View>
     );
   }

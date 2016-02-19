@@ -70,7 +70,7 @@ class ARMasonryGridComponent extends React.Component {
       let artworkComponents = [];
       let artworks = sectionedArtworks[i];
       for (var j = 0; j < artworks.length; j++) {
-        artworkComponents.push(<ARArtworkComponent artwork={artworks[j]} key={'artwork-'+j} />);
+        artworkComponents.push(<ARArtworkComponent artwork={artworks[j]} loadImage={false} key={'artwork-'+j} />);
         // TODO: Setting a marginBottom on the artwork component didn’t work, so using a spacer view for now.
         if (j < artworks.length-1) {
           artworkComponents.push(<View style={spacerStyle} key={'spacer-'+j} accessibilityLabel='Spacer View' />);

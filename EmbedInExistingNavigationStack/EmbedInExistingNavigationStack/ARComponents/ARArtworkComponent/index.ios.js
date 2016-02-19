@@ -39,7 +39,7 @@ class ARArtworkComponent extends React.Component {
     }
     return (
       <View onLayout={onLayout}>
-        <ARImage onImageLayout={this.onImageLayout} aspectRatio={artwork.image.aspect_ratio} source={artwork.image.url} />
+        <ARImage onImageLayout={this.onImageLayout} loadImage={this.props.loadImage} aspectRatio={artwork.image.aspect_ratio} source={artwork.image.url} />
         <Text>{artwork.artist.name}</Text>
         <Text>{artwork.title}</Text>
         <Text>{artwork.partner.name}</Text>
@@ -50,11 +50,13 @@ class ARArtworkComponent extends React.Component {
 };
 
 ARArtworkComponent.propTypes = {
+  loadImage: React.PropTypes.bool,
   artwork: React.PropTypes.shape({
     title: React.PropTypes.string,
     sale_message: React.PropTypes.string,
     image: React.PropTypes.shape({
       url: React.PropTypes.string,
+      // TODO: The React convention seems to be to use cameCase, but metaphysics uses snake_case.
       aspect_ratio: React.PropTypes.number,
     }),
     artist: React.PropTypes.shape({
