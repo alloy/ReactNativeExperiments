@@ -33,6 +33,7 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
   UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
   collectionView.delegate = self;
   collectionView.dataSource = self;
+  collectionView.backgroundColor = [UIColor clearColor];
   [collectionView registerClass:ARArtworksMasonryGridComponentCell.class
       forCellWithReuseIdentifier:CellIdentifier];
 
