@@ -2,9 +2,17 @@
 
 import * as React from 'react-native';
 
-// TODO Rename:
-// * ARMasonryGridCell -> ARMasonryGridCellWrapper
-// * ARMasonryGridCellEventReceiver -> ARMasonryGridCell
+// TODO
+//
+// * Currently have to set a height style on the grid, because RN would make it as tall as all the cells stacked.
+//   Might need to create a shadow view for the grid which overrides that to just fill the superview, like a scrollview
+//   would do.
+//
+// * Rename:
+//   - ARMasonryGridCell -> ARMasonryGridCellWrapper
+//   - ARMasonryGridCellEventReceiver -> ARMasonryGridCell
+//
+
 var NativeCell = React.requireNativeComponent('ARMasonryGridCell', null);
 var NativeCellEventReceiver = React.requireNativeComponent('ARMasonryGridCellEventReceiver', Cell);
 var NativeGrid = React.requireNativeComponent('ARMasonryGridView', Grid);
