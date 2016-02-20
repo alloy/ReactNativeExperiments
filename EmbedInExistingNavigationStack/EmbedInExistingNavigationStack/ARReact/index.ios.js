@@ -42,8 +42,9 @@ var styles = React.StyleSheet.create({
 // TODO: I tried adding the components dir to the package manager with the `--root` option,
 //       but to no avail, so using this relative style for now.
 //let ARMasonryGridComponent = require('../ARComponents/ARMasonryGridComponent');
-let ARMasonry = require('../ARComponents/ARNativeEigenMasonryGridComponent');
-
+//let ARMasonry = require('../ARComponents/ARNativeEigenMasonryGridComponent');
+//ARMasonry();
+let ARArtworksMasonryGrid = require('../ARComponents/ARArtworksMasonryGridComponent');
 
 
 class SimpleApp extends React.Component {
@@ -70,7 +71,7 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARMasonry.Grid artworks={artworks} rank={3} itemMargins={{ width: 10, height: 20 }} />
+        <ARArtworksMasonryGrid style={{height: 300}} artworks={artworks} rank={3} itemMargins={{ width: 10, height: 20 }} />
         <Text>This should be just below the grid!</Text>
       </View>
     );

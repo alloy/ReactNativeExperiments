@@ -35,7 +35,7 @@ ARArtworkComponent.propTypes = {
     sale_message: React.PropTypes.string,
     image: React.PropTypes.shape({
       url: React.PropTypes.string,
-      // TODO: The React convention seems to be to use cameCase, but metaphysics uses snake_case.
+      // TODO: The React convention seems to be to use camelCase, but metaphysics uses snake_case.
       aspect_ratio: React.PropTypes.number,
     }),
     artist: React.PropTypes.shape({
