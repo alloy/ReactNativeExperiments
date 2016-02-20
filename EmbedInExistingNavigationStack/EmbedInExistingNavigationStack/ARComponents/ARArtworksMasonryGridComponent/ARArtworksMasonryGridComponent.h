@@ -16,7 +16,7 @@
 @property (nonatomic, assign) UIEdgeInsets contentInset;
 @property (nonatomic, assign) CGSize itemMargins;
 
-@property (nonatomic, strong) NSArray<NSDictionary *> *artworks;
+@property (nonatomic, copy) NSArray<NSDictionary *> *artworks;
 
 @end
 

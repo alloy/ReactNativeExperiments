@@ -43,6 +43,16 @@
 
 #pragma mark - Bridged properties
 
+- (NSArray<NSDictionary *> *)artworks;
+{
+    return self.controller.artworks;
+}
+
+- (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
+{
+    self.controller.artworks = artworks;
+}
+
 - (NSInteger)direction;
 {
   return self.layout.direction;

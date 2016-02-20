@@ -40,24 +40,34 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
   self.view = collectionView;
 }
 
+// TODO This needs to bacth update instead of reloading.
+- (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
+{
+    _artworks = artworks;
+    [self.collectionView reloadData];
+}
+
 #pragma mark - ARCollectionViewMasonryLayoutDelegate
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(ARCollectionViewMasonryLayout *)collectionViewLayout
                                 variableDimensionForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-  return 0;
+  return 100;
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
-  return 0;
+  return self.artworks.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-  return nil;
+    ARArtworksMasonryGridComponentCell *cell = (id)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
+                                                                                             forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
 }
 
 @end

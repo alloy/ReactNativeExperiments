@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ARArtworksMasonryGridComponentController : UIViewController
+@property (nonatomic, copy) NSArray<NSDictionary *> *artworks;
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 @end
