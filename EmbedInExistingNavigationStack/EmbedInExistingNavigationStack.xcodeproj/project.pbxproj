@@ -21,6 +21,17 @@
 		5122D4B41C7607BE0012EDD1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 5122D4B31C7607BE0012EDD1 /* main.jsbundle */; };
 		5122D4FE1C7629080012EDD1 /* ARMasonryGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4E61C7629080012EDD1 /* ARMasonryGridView.m */; };
 		5122D4FF1C7629080012EDD1 /* ARMasonryGridViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4E81C7629080012EDD1 /* ARMasonryGridViewManager.m */; };
+		5122D5001C7629080012EDD1 /* ARArtworkMasonryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4EB1C7629080012EDD1 /* ARArtworkMasonryModule.m */; };
+		5122D5011C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4ED1C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m */; };
+		5122D5021C7629080012EDD1 /* AREmbeddedModelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4EF1C7629080012EDD1 /* AREmbeddedModelsViewController.m */; };
+		5122D5031C7629080012EDD1 /* ARFeedImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4F11C7629080012EDD1 /* ARFeedImageLoader.m */; };
+		5122D5041C7629080012EDD1 /* ARItemThumbnailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4F41C7629080012EDD1 /* ARItemThumbnailViewCell.m */; };
+		5122D5051C7629080012EDD1 /* ARModelCollectionViewModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4F61C7629080012EDD1 /* ARModelCollectionViewModule.m */; };
+		5122D5061C7629080012EDD1 /* Artwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4F91C7629080012EDD1 /* Artwork.m */; };
+		5122D5071C7629080012EDD1 /* UIImage+ImageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D4FB1C7629080012EDD1 /* UIImage+ImageFromColor.m */; };
+		5122D50B1C762E730012EDD1 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D50A1C762E730012EDD1 /* UIDevice-Hardware.m */; };
+		5122D50E1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D50D1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m */; };
+		5122D5111C762F310012EDD1 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5101C762F310012EDD1 /* Artist.m */; };
 		5122D54D1C773EA30012EDD1 /* ARMasonryGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D54C1C773EA30012EDD1 /* ARMasonryGridCell.m */; };
 		5122D5501C773EC10012EDD1 /* ARMasonryGridCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D54F1C773EC10012EDD1 /* ARMasonryGridCellManager.m */; };
 		5122D5531C777CC60012EDD1 /* ARShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5521C777CC60012EDD1 /* ARShadowImageView.m */; };
@@ -59,7 +70,31 @@
 		5122D4E61C7629080012EDD1 /* ARMasonryGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridView.m; sourceTree = "<group>"; };
 		5122D4E71C7629080012EDD1 /* ARMasonryGridViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridViewManager.h; sourceTree = "<group>"; };
 		5122D4E81C7629080012EDD1 /* ARMasonryGridViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridViewManager.m; sourceTree = "<group>"; };
+		5122D4EA1C7629080012EDD1 /* ARArtworkMasonryModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkMasonryModule.h; sourceTree = "<group>"; };
+		5122D4EB1C7629080012EDD1 /* ARArtworkMasonryModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkMasonryModule.m; sourceTree = "<group>"; };
+		5122D4EC1C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkWithMetadataThumbnailCell.h; sourceTree = "<group>"; };
+		5122D4ED1C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkWithMetadataThumbnailCell.m; sourceTree = "<group>"; };
+		5122D4EE1C7629080012EDD1 /* AREmbeddedModelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREmbeddedModelsViewController.h; sourceTree = "<group>"; };
+		5122D4EF1C7629080012EDD1 /* AREmbeddedModelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREmbeddedModelsViewController.m; sourceTree = "<group>"; };
+		5122D4F01C7629080012EDD1 /* ARFeedImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFeedImageLoader.h; sourceTree = "<group>"; };
+		5122D4F11C7629080012EDD1 /* ARFeedImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFeedImageLoader.m; sourceTree = "<group>"; };
+		5122D4F21C7629080012EDD1 /* ARHasImageBaseURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARHasImageBaseURL.h; sourceTree = "<group>"; };
+		5122D4F31C7629080012EDD1 /* ARItemThumbnailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARItemThumbnailViewCell.h; sourceTree = "<group>"; };
+		5122D4F41C7629080012EDD1 /* ARItemThumbnailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARItemThumbnailViewCell.m; sourceTree = "<group>"; };
+		5122D4F51C7629080012EDD1 /* ARModelCollectionViewModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARModelCollectionViewModule.h; sourceTree = "<group>"; };
+		5122D4F61C7629080012EDD1 /* ARModelCollectionViewModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARModelCollectionViewModule.m; sourceTree = "<group>"; };
+		5122D4F71C7629080012EDD1 /* ARPostAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPostAttachment.h; sourceTree = "<group>"; };
+		5122D4F81C7629080012EDD1 /* Artwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artwork.h; sourceTree = "<group>"; };
+		5122D4F91C7629080012EDD1 /* Artwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artwork.m; sourceTree = "<group>"; };
+		5122D4FA1C7629080012EDD1 /* UIImage+ImageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageFromColor.h"; sourceTree = "<group>"; };
+		5122D4FB1C7629080012EDD1 /* UIImage+ImageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageFromColor.m"; sourceTree = "<group>"; };
 		5122D4FC1C7629080012EDD1 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
+		5122D5091C762E730012EDD1 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		5122D50A1C762E730012EDD1 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		5122D50C1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworkThumbnailMetadataView.h; sourceTree = "<group>"; };
+		5122D50D1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkThumbnailMetadataView.m; sourceTree = "<group>"; };
+		5122D50F1C762F310012EDD1 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
+		5122D5101C762F310012EDD1 /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 		5122D54B1C773EA30012EDD1 /* ARMasonryGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCell.h; sourceTree = "<group>"; };
 		5122D54C1C773EA30012EDD1 /* ARMasonryGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridCell.m; sourceTree = "<group>"; };
 		5122D54E1C773EC10012EDD1 /* ARMasonryGridCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCellManager.h; sourceTree = "<group>"; };
@@ -212,9 +247,41 @@
 				5122D4E61C7629080012EDD1 /* ARMasonryGridView.m */,
 				5122D4E71C7629080012EDD1 /* ARMasonryGridViewManager.h */,
 				5122D4E81C7629080012EDD1 /* ARMasonryGridViewManager.m */,
+				5122D4E91C7629080012EDD1 /* Eigen */,
 				5122D4FC1C7629080012EDD1 /* index.ios.js */,
 			);
 			path = ARNativeMasonryGridComponent;
+			sourceTree = "<group>";
+		};
+		5122D4E91C7629080012EDD1 /* Eigen */ = {
+			isa = PBXGroup;
+			children = (
+				5122D4F81C7629080012EDD1 /* Artwork.h */,
+				5122D4F91C7629080012EDD1 /* Artwork.m */,
+				5122D50F1C762F310012EDD1 /* Artist.h */,
+				5122D5101C762F310012EDD1 /* Artist.m */,
+				5122D4EA1C7629080012EDD1 /* ARArtworkMasonryModule.h */,
+				5122D4EB1C7629080012EDD1 /* ARArtworkMasonryModule.m */,
+				5122D4EC1C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.h */,
+				5122D4ED1C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m */,
+				5122D4EE1C7629080012EDD1 /* AREmbeddedModelsViewController.h */,
+				5122D4EF1C7629080012EDD1 /* AREmbeddedModelsViewController.m */,
+				5122D4F01C7629080012EDD1 /* ARFeedImageLoader.h */,
+				5122D4F11C7629080012EDD1 /* ARFeedImageLoader.m */,
+				5122D4F21C7629080012EDD1 /* ARHasImageBaseURL.h */,
+				5122D4F31C7629080012EDD1 /* ARItemThumbnailViewCell.h */,
+				5122D4F41C7629080012EDD1 /* ARItemThumbnailViewCell.m */,
+				5122D4F51C7629080012EDD1 /* ARModelCollectionViewModule.h */,
+				5122D4F61C7629080012EDD1 /* ARModelCollectionViewModule.m */,
+				5122D4F71C7629080012EDD1 /* ARPostAttachment.h */,
+				5122D4FA1C7629080012EDD1 /* UIImage+ImageFromColor.h */,
+				5122D4FB1C7629080012EDD1 /* UIImage+ImageFromColor.m */,
+				5122D5091C762E730012EDD1 /* UIDevice-Hardware.h */,
+				5122D50A1C762E730012EDD1 /* UIDevice-Hardware.m */,
+				5122D50C1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.h */,
+				5122D50D1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m */,
+			);
+			path = Eigen;
 			sourceTree = "<group>";
 		};
 		7279C3023ED10FD1CF312795 /* Pods */ = {
@@ -359,17 +426,28 @@
 				5122D55C1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m in Sources */,
 				5122D5561C77BF200012EDD1 /* ARMasonryGridContainerCell.m in Sources */,
 				5122D49C1C720DE20012EDD1 /* ARNavigatorModule.m in Sources */,
+				5122D5041C7629080012EDD1 /* ARItemThumbnailViewCell.m in Sources */,
 				5122D54D1C773EA30012EDD1 /* ARMasonryGridCell.m in Sources */,
+				5122D5011C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m in Sources */,
 				5122D4A81C72A09A0012EDD1 /* ARImageView.m in Sources */,
+				5122D50E1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m in Sources */,
 				5122D4821C70B7670012EDD1 /* ViewController.m in Sources */,
 				5122D4FF1C7629080012EDD1 /* ARMasonryGridViewManager.m in Sources */,
 				5122D4FE1C7629080012EDD1 /* ARMasonryGridView.m in Sources */,
 				5122D47F1C70B7670012EDD1 /* AppDelegate.m in Sources */,
+				5122D5031C7629080012EDD1 /* ARFeedImageLoader.m in Sources */,
+				5122D5071C7629080012EDD1 /* UIImage+ImageFromColor.m in Sources */,
 				5122D5531C777CC60012EDD1 /* ARShadowImageView.m in Sources */,
+				5122D5051C7629080012EDD1 /* ARModelCollectionViewModule.m in Sources */,
+				5122D5061C7629080012EDD1 /* Artwork.m in Sources */,
+				5122D5111C762F310012EDD1 /* Artist.m in Sources */,
+				5122D5021C7629080012EDD1 /* AREmbeddedModelsViewController.m in Sources */,
+				5122D50B1C762E730012EDD1 /* UIDevice-Hardware.m in Sources */,
 				5122D5591C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m in Sources */,
 				5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */,
 				5122D4941C70BE3F0012EDD1 /* RootComponentViewController.m in Sources */,
 				5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */,
+				5122D5001C7629080012EDD1 /* ARArtworkMasonryModule.m in Sources */,
 				5122D47C1C70B7670012EDD1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
