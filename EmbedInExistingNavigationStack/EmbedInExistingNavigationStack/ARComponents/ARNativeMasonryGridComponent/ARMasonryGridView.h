@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <React/RCTEventDispatcher.h>
 
 @interface ARMasonryGridView : UIView
-@property (nonatomic) NSArray *artworks;
+@property (nonatomic, assign) NSInteger direction;
+@property (nonatomic, assign) NSUInteger rank;
+@property (nonatomic, assign) CGFloat dimensionLength;
+@property (nonatomic, assign) UIEdgeInsets contentInset;
+@property (nonatomic, assign) CGSize itemMargins;
+
+@property (nonatomic, weak) RCTEventDispatcher *eventDispatcher;
+- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
 @end

@@ -9,28 +9,7 @@ var {
 var ARImage = require('../ARImage');
 
 class ARArtworkComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { didLayoutImage: false };
-    this.onLayout = this.onLayout.bind(this);
-    this.onImageLayout = this.onImageLayout.bind(this);
-  }
-
-  onImageLayout() {
-    this.state.didLayoutImage = true;
-  }
-
-  onLayout(event) {
-    if (this.state.didLayoutImage) {
-      let onArtworkLayout = this.props.onArtworkLayout;
-      if (onArtworkLayout != undefined) {
-        onArtworkLayout(event.nativeEvent.layout)
-      }
-    }
-  }
-
   render() {
-    let onLayout = this.props.onArtworkLayout == undefined ? undefined : this.onLayout;
     let artwork = this.props.artwork;
     let optionals = [];
     // TODO partner ?
@@ -38,8 +17,8 @@ class ARArtworkComponent extends React.Component {
       optionals.push(<Text key="sale_message">{this.props.artwork.sale_message}</Text>);
     }
     return (
-      <View onLayout={onLayout}>
-        <ARImage onImageLayout={this.onImageLayout} loadImage={this.props.loadImage} aspectRatio={artwork.image.aspect_ratio} source={artwork.image.url} />
+      <View>
+        <ARImage loadImage={this.props.loadImage} style={{ backgroundColor: 'grey' }} aspectRatio={artwork.image.aspect_ratio} source={artwork.image.url} />
         <Text>{artwork.artist.name}</Text>
         <Text>{artwork.title}</Text>
         <Text>{artwork.partner.name}</Text>

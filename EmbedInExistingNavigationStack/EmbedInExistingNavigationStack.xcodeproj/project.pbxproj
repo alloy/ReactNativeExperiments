@@ -32,6 +32,12 @@
 		5122D50B1C762E730012EDD1 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D50A1C762E730012EDD1 /* UIDevice-Hardware.m */; };
 		5122D50E1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D50D1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m */; };
 		5122D5111C762F310012EDD1 /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5101C762F310012EDD1 /* Artist.m */; };
+		5122D54D1C773EA30012EDD1 /* ARMasonryGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D54C1C773EA30012EDD1 /* ARMasonryGridCell.m */; };
+		5122D5501C773EC10012EDD1 /* ARMasonryGridCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D54F1C773EC10012EDD1 /* ARMasonryGridCellManager.m */; };
+		5122D5531C777CC60012EDD1 /* ARShadowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5521C777CC60012EDD1 /* ARShadowImageView.m */; };
+		5122D5561C77BF200012EDD1 /* ARMasonryGridContainerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5551C77BF200012EDD1 /* ARMasonryGridContainerCell.m */; };
+		5122D5591C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5581C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m */; };
+		5122D55C1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D55B1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +95,18 @@
 		5122D50D1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworkThumbnailMetadataView.m; sourceTree = "<group>"; };
 		5122D50F1C762F310012EDD1 /* Artist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Artist.h; sourceTree = "<group>"; };
 		5122D5101C762F310012EDD1 /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
+		5122D54B1C773EA30012EDD1 /* ARMasonryGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCell.h; sourceTree = "<group>"; };
+		5122D54C1C773EA30012EDD1 /* ARMasonryGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridCell.m; sourceTree = "<group>"; };
+		5122D54E1C773EC10012EDD1 /* ARMasonryGridCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCellManager.h; sourceTree = "<group>"; };
+		5122D54F1C773EC10012EDD1 /* ARMasonryGridCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridCellManager.m; sourceTree = "<group>"; };
+		5122D5511C777CC60012EDD1 /* ARShadowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARShadowImageView.h; sourceTree = "<group>"; };
+		5122D5521C777CC60012EDD1 /* ARShadowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARShadowImageView.m; sourceTree = "<group>"; };
+		5122D5541C77BF200012EDD1 /* ARMasonryGridContainerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridContainerCell.h; sourceTree = "<group>"; };
+		5122D5551C77BF200012EDD1 /* ARMasonryGridContainerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridContainerCell.m; sourceTree = "<group>"; };
+		5122D5571C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCellEventReceiver.h; sourceTree = "<group>"; };
+		5122D5581C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridCellEventReceiver.m; sourceTree = "<group>"; };
+		5122D55A1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMasonryGridCellEventReceiverManager.h; sourceTree = "<group>"; };
+		5122D55B1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMasonryGridCellEventReceiverManager.m; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -183,6 +201,8 @@
 				5122D4A31C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m */,
 				5122D4A61C72A09A0012EDD1 /* ARImageView.h */,
 				5122D4A71C72A09A0012EDD1 /* ARImageView.m */,
+				5122D5511C777CC60012EDD1 /* ARShadowImageView.h */,
+				5122D5521C777CC60012EDD1 /* ARShadowImageView.m */,
 			);
 			path = ARImage;
 			sourceTree = "<group>";
@@ -213,6 +233,16 @@
 		5122D4E31C7629080012EDD1 /* ARNativeMasonryGridComponent */ = {
 			isa = PBXGroup;
 			children = (
+				5122D54B1C773EA30012EDD1 /* ARMasonryGridCell.h */,
+				5122D54C1C773EA30012EDD1 /* ARMasonryGridCell.m */,
+				5122D5541C77BF200012EDD1 /* ARMasonryGridContainerCell.h */,
+				5122D5551C77BF200012EDD1 /* ARMasonryGridContainerCell.m */,
+				5122D54E1C773EC10012EDD1 /* ARMasonryGridCellManager.h */,
+				5122D54F1C773EC10012EDD1 /* ARMasonryGridCellManager.m */,
+				5122D5571C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.h */,
+				5122D5581C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m */,
+				5122D55A1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.h */,
+				5122D55B1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m */,
 				5122D4E51C7629080012EDD1 /* ARMasonryGridView.h */,
 				5122D4E61C7629080012EDD1 /* ARMasonryGridView.m */,
 				5122D4E71C7629080012EDD1 /* ARMasonryGridViewManager.h */,
@@ -392,8 +422,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5122D5501C773EC10012EDD1 /* ARMasonryGridCellManager.m in Sources */,
+				5122D55C1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m in Sources */,
+				5122D5561C77BF200012EDD1 /* ARMasonryGridContainerCell.m in Sources */,
 				5122D49C1C720DE20012EDD1 /* ARNavigatorModule.m in Sources */,
 				5122D5041C7629080012EDD1 /* ARItemThumbnailViewCell.m in Sources */,
+				5122D54D1C773EA30012EDD1 /* ARMasonryGridCell.m in Sources */,
 				5122D5011C7629080012EDD1 /* ARArtworkWithMetadataThumbnailCell.m in Sources */,
 				5122D4A81C72A09A0012EDD1 /* ARImageView.m in Sources */,
 				5122D50E1C762ECE0012EDD1 /* ARArtworkThumbnailMetadataView.m in Sources */,
@@ -403,11 +437,13 @@
 				5122D47F1C70B7670012EDD1 /* AppDelegate.m in Sources */,
 				5122D5031C7629080012EDD1 /* ARFeedImageLoader.m in Sources */,
 				5122D5071C7629080012EDD1 /* UIImage+ImageFromColor.m in Sources */,
+				5122D5531C777CC60012EDD1 /* ARShadowImageView.m in Sources */,
 				5122D5051C7629080012EDD1 /* ARModelCollectionViewModule.m in Sources */,
 				5122D5061C7629080012EDD1 /* Artwork.m in Sources */,
 				5122D5111C762F310012EDD1 /* Artist.m in Sources */,
 				5122D5021C7629080012EDD1 /* AREmbeddedModelsViewController.m in Sources */,
 				5122D50B1C762E730012EDD1 /* UIDevice-Hardware.m in Sources */,
+				5122D5591C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m in Sources */,
 				5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */,
 				5122D4941C70BE3F0012EDD1 /* RootComponentViewController.m in Sources */,
 				5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */,
