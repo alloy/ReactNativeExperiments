@@ -14,10 +14,10 @@
 
 @implementation Artist
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
+- (instancetype)initWithDictionary:(NSDictionary *)data;
 {
     if ((self = [super init])) {
-        _data = [json copy];
+        _data = data;
     }
     return self;
 }

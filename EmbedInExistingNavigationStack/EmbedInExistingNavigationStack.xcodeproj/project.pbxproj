@@ -38,6 +38,8 @@
 		5122D57F1C7876B60012EDD1 /* Artwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5721C7876B60012EDD1 /* Artwork.m */; };
 		5122D5801C7876B60012EDD1 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5741C7876B60012EDD1 /* UIDevice-Hardware.m */; };
 		5122D5811C7876B60012EDD1 /* UIImage+ImageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5761C7876B60012EDD1 /* UIImage+ImageFromColor.m */; };
+		5122D5841C7878070012EDD1 /* AREigenMasonryGridViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5831C7878070012EDD1 /* AREigenMasonryGridViewManager.m */; };
+		5122D5871C78781A0012EDD1 /* AREigenMasonryGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5861C78781A0012EDD1 /* AREigenMasonryGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,10 @@
 		5122D5741C7876B60012EDD1 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		5122D5751C7876B60012EDD1 /* UIImage+ImageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageFromColor.h"; sourceTree = "<group>"; };
 		5122D5761C7876B60012EDD1 /* UIImage+ImageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageFromColor.m"; sourceTree = "<group>"; };
+		5122D5821C7878070012EDD1 /* AREigenMasonryGridViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREigenMasonryGridViewManager.h; sourceTree = "<group>"; };
+		5122D5831C7878070012EDD1 /* AREigenMasonryGridViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREigenMasonryGridViewManager.m; sourceTree = "<group>"; };
+		5122D5851C78781A0012EDD1 /* AREigenMasonryGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AREigenMasonryGridView.h; sourceTree = "<group>"; };
+		5122D5861C78781A0012EDD1 /* AREigenMasonryGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREigenMasonryGridView.m; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -256,6 +262,10 @@
 		5122D55D1C7876B60012EDD1 /* ARNativeEigenMasonryGridComponent */ = {
 			isa = PBXGroup;
 			children = (
+				5122D5851C78781A0012EDD1 /* AREigenMasonryGridView.h */,
+				5122D5861C78781A0012EDD1 /* AREigenMasonryGridView.m */,
+				5122D5821C7878070012EDD1 /* AREigenMasonryGridViewManager.h */,
+				5122D5831C7878070012EDD1 /* AREigenMasonryGridViewManager.m */,
 				5122D55E1C7876B60012EDD1 /* Eigen */,
 			);
 			path = ARNativeEigenMasonryGridComponent;
@@ -432,6 +442,7 @@
 			files = (
 				5122D5501C773EC10012EDD1 /* ARMasonryGridCellManager.m in Sources */,
 				5122D55C1C77DE650012EDD1 /* ARMasonryGridCellEventReceiverManager.m in Sources */,
+				5122D5841C7878070012EDD1 /* AREigenMasonryGridViewManager.m in Sources */,
 				5122D57F1C7876B60012EDD1 /* Artwork.m in Sources */,
 				5122D5781C7876B60012EDD1 /* ARArtworkThumbnailMetadataView.m in Sources */,
 				5122D57C1C7876B60012EDD1 /* ARItemThumbnailViewCell.m in Sources */,
@@ -451,6 +462,7 @@
 				5122D47F1C70B7670012EDD1 /* AppDelegate.m in Sources */,
 				5122D5531C777CC60012EDD1 /* ARShadowImageView.m in Sources */,
 				5122D5801C7876B60012EDD1 /* UIDevice-Hardware.m in Sources */,
+				5122D5871C78781A0012EDD1 /* AREigenMasonryGridView.m in Sources */,
 				5122D5591C77DE460012EDD1 /* ARMasonryGridCellEventReceiver.m in Sources */,
 				5122D4A11C729AF90012EDD1 /* ARImageViewManager.m in Sources */,
 				5122D4941C70BE3F0012EDD1 /* RootComponentViewController.m in Sources */,

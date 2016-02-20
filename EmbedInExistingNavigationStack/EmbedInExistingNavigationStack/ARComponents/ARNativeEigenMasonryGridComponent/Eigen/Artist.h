@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Artist : NSObject
-- (instancetype)initWithJSON:(NSDictionary *)json;
+- (instancetype)initWithDictionary:(NSDictionary *)data;
 - (NSString *)name;
 @end

@@ -8,16 +8,21 @@
 
 #import "Artwork.h"
 
+static id
+ValueOrNil(id value) {
+  return value != nil && value != [NSNull null] ? value : nil;
+}
+
 @interface Artwork ()
 @property (nonatomic, copy) NSDictionary *data;
 @end
 
 @implementation Artwork
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
+- (instancetype)initWithDictionary:(NSDictionary *)data;
 {
     if ((self = [super init])) {
-        _data = [json copy];
+        _data = data;
     }
     return self;
 }
@@ -27,9 +32,14 @@
     return nil;
 }
 
+- (NSURL *)imageURL;
+{
+    return [NSURL URLWithString:self.data[@"image"][@"url"]];
+}
+
 - (Artist *)artist;
 {
-    return [[Artist alloc] initWithJSON:self.data[@"artist"]];
+    return [[Artist alloc] initWithDictionary:self.data[@"artist"]];
 }
 
 - (NSDate *)date;
@@ -39,17 +49,18 @@
 
 - (NSString *)title;
 {
-    return self.data[@"title"];
+    return ValueOrNil(self.data[@"title"]);
 }
 
 - (NSString *)saleMessage;
 {
-    return self.data[@"sale_message"];
+    return ValueOrNil(self.data[@"sale_message"]);
 }
 
 - (CGFloat)aspectRatio;
 {
-    return [self.data[@"aspect_ratio"] floatValue];
+    NSNumber *aspectRatio = self.data[@"image"][@"aspect_ratio"];
+    return ValueOrNil(aspectRatio) ? aspectRatio.floatValue : 1;
 }
 
 @end

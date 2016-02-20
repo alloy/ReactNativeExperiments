@@ -3,6 +3,8 @@
 #import "Artwork.h"
 #import "ARArtworkThumbnailMetadataView.h"
 
+#import "UIImageView+AsyncImageLoading.h"
+
 #import "UIDevice-Hardware.h"
 
 #import <FLKAutoLayout/UIView+FLKAutoLayout.h>
@@ -84,19 +86,26 @@ static const CGFloat ARArtworkCellMetadataMargin = 8;
     [self.metadataView constrainHeight:heightFormat];
     
     [self layoutIfNeeded];
-    
-    NSString *baseUrl = [artwork baseImageURL];
-    
-    ARFeedItemImageSize size = self.imageSize;
-    if (self.imageSize == ARFeedItemImageSizeAuto) {
-        CGSize imageSize = self.imageView.bounds.size;
-        CGFloat longestDimension = (imageSize.height > imageSize.width) ? imageSize.height : imageSize.width;
-        size = (longestDimension > 200) ? ARFeedItemImageSizeLarge : ARFeedItemImageSizeSmall;
+
+    // TODO This is different from Eigen, because metaphysics does not have baseImageURL,
+    // instead it returns formatted URLs.
+    NSURL *imageURL = artwork.imageURL;
+    if (imageURL) {
+        [self.imageView ar_setImageWithURL:imageURL];
+    } else {
+        NSString *baseUrl = [artwork baseImageURL];
+
+        ARFeedItemImageSize size = self.imageSize;
+        if (self.imageSize == ARFeedItemImageSizeAuto) {
+            CGSize imageSize = self.imageView.bounds.size;
+            CGFloat longestDimension = (imageSize.height > imageSize.width) ? imageSize.height : imageSize.width;
+            size = (longestDimension > 200) ? ARFeedItemImageSizeLarge : ARFeedItemImageSizeSmall;
+        }
+        
+        [[ARFeedImageLoader alloc] loadImageAtAddress:baseUrl desiredSize:size
+                                         forImageView:self.imageView
+                                    customPlaceholder:nil];
     }
-    
-    [[ARFeedImageLoader alloc] loadImageAtAddress:baseUrl desiredSize:size
-                                     forImageView:self.imageView
-                                customPlaceholder:nil];
     
     self.accessibilityLabel = [artwork title];
     self.isAccessibilityElement = YES;
