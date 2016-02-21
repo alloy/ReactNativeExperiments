@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef struct
+{
+    CGFloat totalHeight;
+    CGRect imageView;
+    CGRect artistNameLabel;
+    CGRect titleLabel;
+    CGRect partnerNameLabel;
+    CGRect saleMessageLabel;
+} ARArtworksMasonryGridComponentCellFrames;
+
 @interface ARArtworksMasonryGridComponentCell : UICollectionViewCell
+
+// TODO Only supports vertical layout atm.
++ (void)calculateFrames:(ARArtworksMasonryGridComponentCellFrames *)cellFrames
+             forArtwork:(NSDictionary *)artwork
+              withWidth:(CGFloat)width;
+
+- (void)configureWithArtwork:(NSDictionary *)artwork frames:(ARArtworksMasonryGridComponentCellFrames *)cellFrames;
 
 @end

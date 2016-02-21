@@ -16,9 +16,16 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
 @interface ARArtworksMasonryGridComponentController () <ARCollectionViewMasonryLayoutDelegate,
                                                         UICollectionViewDataSource,
                                                         UICollectionViewDelegate>
+@property (nonatomic, strong) dispatch_group_t framesCalculationGroup;
+@property (nonatomic, assign) ARArtworksMasonryGridComponentCellFrames *cellFrames;
 @end
 
 @implementation ARArtworksMasonryGridComponentController
+
+- (void)dealloc;
+{
+    free(_cellFrames);
+}
 
 - (UICollectionView *)collectionView;
 {
@@ -40,11 +47,54 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
   self.view = collectionView;
 }
 
-// TODO This needs to bacth update instead of reloading.
+- (void)setCellFrames:(ARArtworksMasonryGridComponentCellFrames *)cellFrames;
+{
+    free(_cellFrames);
+    _cellFrames = cellFrames;
+}
+
+// TODO This needs to batch update instead of reloading.
 - (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
 {
+    NSAssert(self.framesCalculationGroup == nil, @"Did not finish calculating frames yet.");
+    
     _artworks = artworks;
-    [self.collectionView reloadData];
+    self.cellFrames = calloc(artworks.count, sizeof(ARArtworksMasonryGridComponentCellFrames));
+
+    dispatch_group_t group = dispatch_group_create();
+    self.framesCalculationGroup = group;
+    dispatch_queue_t queue = dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0);
+
+    CGFloat dimensionLength = [(ARCollectionViewMasonryLayout *)self.collectionView.collectionViewLayout dimensionLength];
+
+    dispatch_group_async(group, queue, ^{
+        NSUInteger artworksCount = self.artworks.count;
+        for (NSUInteger i = 0; i < artworksCount; i++) {
+            dispatch_group_async(group, queue, ^{
+                [ARArtworksMasonryGridComponentCell calculateFrames:&self.cellFrames[i]
+                                                         forArtwork:self.artworks[i]
+                                                          withWidth:dimensionLength];
+            });
+        }
+    });
+    dispatch_group_notify(group, queue, ^{
+        self.framesCalculationGroup = nil;
+    });
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // TODO Check if this actually performs work when th eview is not shown yet
+        // and if calling this here means that the main thread will be halted waiting for the frames
+        [self.collectionView reloadData];
+    });
+}
+
+- (ARArtworksMasonryGridComponentCellFrames *)cellFramesAtIndex:(NSUInteger)index;
+{
+    if (self.framesCalculationGroup) {
+        // Still calculating, halt the thread, shouldn’t take too long.
+        dispatch_group_wait(self.framesCalculationGroup, DISPATCH_TIME_FOREVER);
+    }
+    return &self.cellFrames[index];
 }
 
 #pragma mark - ARCollectionViewMasonryLayoutDelegate
@@ -52,21 +102,21 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(ARCollectionViewMasonryLayout *)collectionViewLayout
                                 variableDimensionForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-  return 100;
+    return [self cellFramesAtIndex:indexPath.row]->totalHeight;
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
-  return self.artworks.count;
+    return self.artworks.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     ARArtworksMasonryGridComponentCell *cell = (id)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                                                                              forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    [cell configureWithArtwork:self.artworks[indexPath.row] frames:&self.cellFrames[indexPath.row]];
     return cell;
 }
 
