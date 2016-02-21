@@ -12,22 +12,27 @@
 #import <SDWebImage/SDWebImageManager.h>
 
 static void
-LoadImage(UIImage *image, CGSize destinationSize, void (^callback)(UIImage *loadedImage)) {
+LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^callback)(UIImage *loadedImage)) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        CGFloat width = destinationSize.width * scaleFactor;
+        CGFloat height = destinationSize.height * scaleFactor;
+
         CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
         CGContextRef context = CGBitmapContextCreate(NULL,
-                                                     destinationSize.width,
-                                                     destinationSize.height,
+                                                     width,
+                                                     height,
                                                      8,
-                                                     destinationSize.width * 4,
+                                                     width * 4,
                                                      colourSpace,
                                                      kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Host);
         CGColorSpaceRelease(colourSpace);
 
-        CGContextDrawImage(context, CGRectMake(0, 0, destinationSize.width, destinationSize.height), image.CGImage);
+        CGContextDrawImage(context, CGRectMake(0, 0, width, height), image.CGImage);
 
         CGImageRef outputImage = CGBitmapContextCreateImage(context);
-        UIImage *loadedImage = [UIImage imageWithCGImage:outputImage];
+        UIImage *loadedImage = [UIImage imageWithCGImage:outputImage
+                                                   scale:scaleFactor
+                                             orientation:UIImageOrientationUp];
 
         CGImageRelease(outputImage);
         CGContextRelease(context);
@@ -82,7 +87,7 @@ LoadImage(UIImage *image, CGSize destinationSize, void (^callback)(UIImage *load
             __strong typeof(weakSelf) strongSelf = weakSelf;
             // Only really assign if the URL we downloaded still matches `self.imageURL`.
             if (strongSelf && [imageURL isEqual:strongSelf.imageURL]) {
-                LoadImage(image, strongSelf.bounds.size, ^(UIImage *loadedImage) {
+                LoadImage(image, strongSelf.bounds.size, strongSelf.contentScaleFactor, ^(UIImage *loadedImage) {
                     if ([imageURL isEqual:weakSelf.imageURL]) {
                         weakSelf.image = loadedImage;
                     }
