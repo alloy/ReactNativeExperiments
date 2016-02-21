@@ -44,6 +44,7 @@
 		5122D5841C7878070012EDD1 /* AREigenMasonryGridViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5831C7878070012EDD1 /* AREigenMasonryGridViewManager.m */; };
 		5122D5871C78781A0012EDD1 /* AREigenMasonryGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D5861C78781A0012EDD1 /* AREigenMasonryGridView.m */; };
 		5122D58B1C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5122D58A1C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.m */; };
+		5165D1C81C79D95F00D78419 /* AROpaqueImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5165D1C71C79D95F00D78419 /* AROpaqueImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,8 @@
 		5122D5861C78781A0012EDD1 /* AREigenMasonryGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AREigenMasonryGridView.m; sourceTree = "<group>"; };
 		5122D5891C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworksMasonryGridComponent.h; sourceTree = "<group>"; };
 		5122D58A1C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworksMasonryGridComponent.m; sourceTree = "<group>"; };
+		5165D1C61C79D95F00D78419 /* AROpaqueImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AROpaqueImageView.h; sourceTree = "<group>"; };
+		5165D1C71C79D95F00D78419 /* AROpaqueImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AROpaqueImageView.m; sourceTree = "<group>"; };
 		E3911A1D3686D905B4E0C8E2 /* Pods-EmbedInExistingNavigationStack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmbedInExistingNavigationStack.release.xcconfig"; path = "../Pods/Target Support Files/Pods-EmbedInExistingNavigationStack/Pods-EmbedInExistingNavigationStack.release.xcconfig"; sourceTree = "<group>"; };
 		E3E75E5D28B2F8237E7A875D /* libPods-EmbedInExistingNavigationStack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmbedInExistingNavigationStack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -320,6 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				5103AB7C1C790B9B00FA2EA5 /* index.ios.js */,
+				5165D1C61C79D95F00D78419 /* AROpaqueImageView.h */,
+				5165D1C71C79D95F00D78419 /* AROpaqueImageView.m */,
 				5122D5891C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.h */,
 				5122D58A1C78AE8B0012EDD1 /* ARArtworksMasonryGridComponent.m */,
 				5103AB791C79095400FA2EA5 /* ARArtworksMasonryGridComponentCell.h */,
@@ -502,6 +507,7 @@
 				5122D4A41C729B5A0012EDD1 /* UIImageView+AsyncImageLoading.m in Sources */,
 				5122D47C1C70B7670012EDD1 /* main.m in Sources */,
 				5103AB781C78F7C200FA2EA5 /* ARArtworksMasonryGridComponentController.m in Sources */,
+				5165D1C81C79D95F00D78419 /* AROpaqueImageView.m in Sources */,
 				5122D57D1C7876B60012EDD1 /* ARModelCollectionViewModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
