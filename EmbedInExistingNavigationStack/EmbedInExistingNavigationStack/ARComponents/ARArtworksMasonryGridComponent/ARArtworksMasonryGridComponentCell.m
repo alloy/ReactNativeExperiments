@@ -19,7 +19,6 @@ ValueOrNil(id value) {
 @interface ARArtworksMasonryGridComponentCell ()
 @property (nonatomic, assign) ARArtworksMasonryGridComponentCellFrames cellFrames;
 @property (nonatomic, strong) AROpaqueImageView *imageView;
-//@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSAttributedString *artistName;
 @property (nonatomic, strong) NSAttributedString *artworkTitle;
 @end
@@ -64,7 +63,6 @@ CreateTextStorage(CGFloat width, NSUInteger numberOfLines) {
     return textStorage;
 }
 
-// TODO Extract font definition, for now uses the system default.
 static CGFloat
 HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString) {
     [textStorage replaceCharactersInRange:NSMakeRange(0, textStorage.length) withAttributedString:attributedString];
@@ -105,9 +103,6 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
         self.backgroundColor = [UIColor whiteColor];
 
         _imageView = [AROpaqueImageView new];
-//        _imageView = [UIImageView new];
-//        _imageView.layer.opaque = YES;
-//        _imageView.opaque = YES;
         [self.contentView addSubview:_imageView];
     }
     return self;
@@ -129,9 +124,7 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
     self.cellFrames = *cellFrames;
 
     self.imageView.frame = cellFrames->imageView;
-//    self.imageView.imageURL = [NSURL URLWithString:artwork[@"image"][@"url"]];
     [self.imageView loadImageFromURL:[NSURL URLWithString:artwork[@"image"][@"url"]]];
-//    [self.imageView ar_setImageWithURL:[NSURL URLWithString:artwork[@"image"][@"url"]]];
 
     self.artistName = ArtworkTitleAttributedString(artwork[@"artist"][@"name"]);
 
