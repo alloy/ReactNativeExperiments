@@ -10,5 +10,5 @@
 
 @interface AROpaqueImageView : UIView
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) NSURL *imageURL;
+- (void)loadImageFromURL:(NSURL *)imageURL;
 @end

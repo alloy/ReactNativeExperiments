@@ -119,7 +119,7 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
     
     // Clearing out the image and imageURL on the imageView would only lead to
     // unnecessary drawing of blank images.
-
+    self.imageView.image = nil;
     self.artistName = nil;
     self.artworkTitle = nil;
 }
@@ -129,7 +129,8 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
     self.cellFrames = *cellFrames;
 
     self.imageView.frame = cellFrames->imageView;
-    self.imageView.imageURL = [NSURL URLWithString:artwork[@"image"][@"url"]];
+//    self.imageView.imageURL = [NSURL URLWithString:artwork[@"image"][@"url"]];
+    [self.imageView loadImageFromURL:[NSURL URLWithString:artwork[@"image"][@"url"]]];
 //    [self.imageView ar_setImageWithURL:[NSURL URLWithString:artwork[@"image"][@"url"]]];
 
     self.artistName = ArtworkTitleAttributedString(artwork[@"artist"][@"name"]);
