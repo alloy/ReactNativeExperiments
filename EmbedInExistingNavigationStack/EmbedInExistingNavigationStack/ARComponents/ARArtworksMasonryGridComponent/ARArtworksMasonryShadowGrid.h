@@ -1,16 +1,15 @@
 //
-//  ARArtworksMasonryGridView.h
+//  ARArtworksMasonryShadowGrid.h
 //  EmbedInExistingNavigationStack
 //
-//  Created by Eloy Durán on 20/02/16.
+//  Created by Eloy Durán on 22/02/16.
 //  Copyright © 2016 Artsy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <React/RCTBridge.h>
+#import <React/RCTShadowView.h>
 
-@class RCTEventDispatcher, ARArtworksMasonryGridComponentController;
-
-@interface ARArtworksMasonryGridComponent : UIView
+@interface ARArtworksMasonryShadowGrid : RCTShadowView
 
 @property (nonatomic, assign) NSInteger direction;
 @property (nonatomic, assign) NSUInteger rank;
@@ -20,9 +19,4 @@
 
 @property (nonatomic, copy) NSArray<NSDictionary *> *artworks;
 
-@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
-
-- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
-
 @end
-

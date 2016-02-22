@@ -5,7 +5,8 @@ var {
   Text,
   TouchableHighlight,
   View,
-  NativeModules
+  ScrollView,
+  NativeModules,
 } = React;
 
 
@@ -71,7 +72,7 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARArtworksMasonryGrid style={{height: 300}} artworks={artworks} rank={3} itemMargins={{ width: 10, height: 20 }} />
+        <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={3} />
         <Text>This should be just below the grid!</Text>
       </View>
     );

@@ -82,7 +82,7 @@ static NSString *CellIdentifier = @"ARArtworksMasonryGridComponentCell";
     });
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        // TODO Check if this actually performs work when th eview is not shown yet
+        // TODO Check if this actually performs work when the view is not shown yet
         // and if calling this here means that the main thread will be halted waiting for the frames
         [self.collectionView reloadData];
     });

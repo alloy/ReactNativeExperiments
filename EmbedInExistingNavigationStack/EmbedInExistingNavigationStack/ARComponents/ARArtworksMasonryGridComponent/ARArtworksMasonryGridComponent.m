@@ -10,10 +10,13 @@
 #import "ARArtworksMasonryGridComponentController.h"
 
 #import <ARCollectionViewMasonryLayout/ARCollectionViewMasonryLayout.h>
+
 #import <React/UIView+React.h>
+#import <React/RCTEventDispatcher.h>
 
 @interface ARArtworksMasonryGridComponent ()
-@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
+@property (nonatomic, weak) RCTEventDispatcher *eventDispatcher;
+//@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
 @end
 
 @implementation ARArtworksMasonryGridComponent
@@ -24,22 +27,39 @@
   [_controller removeFromParentViewController];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame;
+- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
 {
-  if ((self = [super initWithFrame:frame])) {
-    _controller = [ARArtworksMasonryGridComponentController new];
+  if ((self = [super init])) {
+    _eventDispatcher = eventDispatcher;
+
+//    _controller = [ARArtworksMasonryGridComponentController new];
     // _controller.delegate = self;
+//    _controller.view.frame = self.bounds;
+//    _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//    [self addSubview:_controller.view];
+  }
+  return self;
+}
+
+- (void)setController:(ARArtworksMasonryGridComponentController *)controller;
+{
+    _controller = controller;
+//     _controller.delegate = self;
     _controller.view.frame = self.bounds;
     _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addSubview:_controller.view];
-  }
-  return self;
 }
 
 - (ARCollectionViewMasonryLayout *)layout;
 {
   return (ARCollectionViewMasonryLayout *)self.controller.collectionView.collectionViewLayout;
 }
+
+//- (void)layoutSubviews;
+//{
+//    [super layoutSubviews];
+//    NSLog(@"HIER");
+//}
 
 #pragma mark - Bridged properties
 
