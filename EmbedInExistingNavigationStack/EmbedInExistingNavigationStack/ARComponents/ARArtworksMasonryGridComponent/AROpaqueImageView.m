@@ -50,6 +50,14 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
 
 @implementation AROpaqueImageView
 
+- (instancetype)initWithFrame:(CGRect)frame;
+{
+    if ((self = [super initWithFrame:frame])) {
+        self.layer.opaque = YES;
+    }
+    return self;
+}
+
 - (void)loadImageFromURL:(NSURL *)imageURL;
 {
     self.imageURL = imageURL;
@@ -106,17 +114,7 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
     
     if (_image != image) {
         _image = image;
-        [self setNeedsDisplay];
-    }
-}
-
-- (void)drawRect:(CGRect)rect;
-{
-    if (self.image) {
-        [self.image drawInRect:self.bounds];
-    } else {
-        [[UIColor grayColor] setFill];
-        CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+        self.layer.contents = (id)image.CGImage;
     }
 }
 

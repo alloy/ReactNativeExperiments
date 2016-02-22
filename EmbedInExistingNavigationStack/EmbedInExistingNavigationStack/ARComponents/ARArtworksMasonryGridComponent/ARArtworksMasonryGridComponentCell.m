@@ -103,6 +103,7 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
         self.backgroundColor = [UIColor whiteColor];
 
         _imageView = [AROpaqueImageView new];
+        _imageView.backgroundColor = [UIColor grayColor];
         [self.contentView addSubview:_imageView];
     }
     return self;
@@ -136,6 +137,10 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
 
 - (void)drawRect:(CGRect)rect;
 {
+    // Clear the background after re-use
+    [[UIColor whiteColor] setFill];
+    CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+
     ARArtworksMasonryGridComponentCellFrames cellFrames = self.cellFrames;
 
     [self.artistName drawWithRect:cellFrames.artistNameLabel
