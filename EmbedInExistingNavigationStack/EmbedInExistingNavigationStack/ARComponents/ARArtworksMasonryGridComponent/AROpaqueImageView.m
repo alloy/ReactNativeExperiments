@@ -11,6 +11,9 @@
 #import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/SDWebImageManager.h>
 
+// Decode the image. Do not add an alpha channel, to ensure that the image will be drawn by UIImageView
+// without any blending.
+//
 static void
 LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^callback)(UIImage *loadedImage)) {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
@@ -24,7 +27,7 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
                                                      8,
                                                      width * 4,
                                                      colourSpace,
-                                                     kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Host);
+                                                     kCGImageAlphaNoneSkipFirst | kCGBitmapByteOrder32Host);
         CGColorSpaceRelease(colourSpace);
 
         CGContextDrawImage(context, CGRectMake(0, 0, width, height), image.CGImage);
@@ -53,7 +56,7 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
 - (instancetype)initWithFrame:(CGRect)frame;
 {
     if ((self = [super initWithFrame:frame])) {
-        self.layer.opaque = YES;
+        self.opaque = YES;
     }
     return self;
 }
@@ -107,15 +110,9 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
 
 - (void)setImage:(UIImage *)image;
 {
-    NSAssert([NSThread isMainThread], @"Should be called from the main thread.");
-    
     // This will cancel an in-flight download operation, if one exists.
     self.imageURL = nil;
-    
-    if (_image != image) {
-        _image = image;
-        self.layer.contents = (id)image.CGImage;
-    }
+    [super setImage:image];
 }
 
 @end

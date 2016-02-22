@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AROpaqueImageView : UIView
-@property (nonatomic, strong) UIImage *image;
+@interface AROpaqueImageView : UIImageView
 - (void)loadImageFromURL:(NSURL *)imageURL;
 @end

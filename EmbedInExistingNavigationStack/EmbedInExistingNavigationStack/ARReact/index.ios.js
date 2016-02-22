@@ -28,6 +28,13 @@ var {
 //    }
 //  }
 //}
+//
+// We can add the following to image and dowload less data:
+//
+// resized(width: 120) {
+//   url
+// }
+
 let artworks = require('./artworks.json');
 
 var styles = React.StyleSheet.create({
