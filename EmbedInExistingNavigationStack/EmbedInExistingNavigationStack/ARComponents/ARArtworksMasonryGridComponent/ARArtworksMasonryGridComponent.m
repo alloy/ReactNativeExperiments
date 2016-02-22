@@ -9,14 +9,11 @@
 #import "ARArtworksMasonryGridComponent.h"
 #import "ARArtworksMasonryGridComponentController.h"
 
-#import <ARCollectionViewMasonryLayout/ARCollectionViewMasonryLayout.h>
-
 #import <React/UIView+React.h>
 #import <React/RCTEventDispatcher.h>
 
 @interface ARArtworksMasonryGridComponent ()
 @property (nonatomic, weak) RCTEventDispatcher *eventDispatcher;
-//@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
 @end
 
 @implementation ARArtworksMasonryGridComponent
@@ -31,12 +28,6 @@
 {
   if ((self = [super init])) {
     _eventDispatcher = eventDispatcher;
-
-//    _controller = [ARArtworksMasonryGridComponentController new];
-    // _controller.delegate = self;
-//    _controller.view.frame = self.bounds;
-//    _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    [self addSubview:_controller.view];
   }
   return self;
 }
@@ -48,82 +39,6 @@
     _controller.view.frame = self.bounds;
     _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addSubview:_controller.view];
-}
-
-- (ARCollectionViewMasonryLayout *)layout;
-{
-  return (ARCollectionViewMasonryLayout *)self.controller.collectionView.collectionViewLayout;
-}
-
-//- (void)layoutSubviews;
-//{
-//    [super layoutSubviews];
-//    NSLog(@"HIER");
-//}
-
-#pragma mark - Bridged properties
-
-- (NSArray<NSDictionary *> *)artworks;
-{
-    return self.controller.artworks;
-}
-
-- (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
-{
-    self.controller.artworks = artworks;
-}
-
-- (NSInteger)direction;
-{
-  return self.layout.direction;
-}
-
-- (void)setDirection:(NSInteger)direction;
-{
-  if (direction != self.direction) {
-    ARCollectionViewMasonryLayout *layout = [[ARCollectionViewMasonryLayout alloc] initWithDirection:direction];
-    self.controller.collectionView.collectionViewLayout = layout;
-  }
-}
-
-- (NSUInteger)rank;
-{
-  return self.layout.rank;
-}
-
-- (void)setRank:(NSUInteger)rank;
-{
-  self.layout.rank = rank;
-}
-
-- (CGFloat)dimensionLength;
-{
-  return self.layout.dimensionLength;
-}
-
-- (void)setDimensionLength:(CGFloat)dimensionLength;
-{
-  self.layout.dimensionLength = dimensionLength;
-}
-
-- (UIEdgeInsets)contentInset;
-{
-  return self.layout.contentInset;
-}
-
-- (void)setContentInset:(UIEdgeInsets)contentInset;
-{
-  self.layout.contentInset = contentInset;
-}
-
-- (CGSize)itemMargins;
-{
-  return self.layout.itemMargins;
-}
-
-- (void)setItemMargins:(CGSize)itemMargins;
-{
-  self.layout.itemMargins = itemMargins;
 }
 
 #pragma mark - React

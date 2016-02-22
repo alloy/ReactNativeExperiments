@@ -12,14 +12,6 @@
 
 @interface ARArtworksMasonryGridComponent : UIView
 
-@property (nonatomic, assign) NSInteger direction;
-@property (nonatomic, assign) NSUInteger rank;
-@property (nonatomic, assign) CGFloat dimensionLength;
-@property (nonatomic, assign) UIEdgeInsets contentInset;
-@property (nonatomic, assign) CGSize itemMargins;
-
-@property (nonatomic, copy) NSArray<NSDictionary *> *artworks;
-
 @property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
 
 - (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
