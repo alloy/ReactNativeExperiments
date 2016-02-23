@@ -98,7 +98,10 @@ LoadImage(UIImage *image, CGSize destinationSize, CGFloat scaleFactor, void (^ca
             __strong typeof(weakSelf) strongSelf = weakSelf;
             // Only really assign if the URL we downloaded still matches `self.imageURL`.
             if (strongSelf && [imageURL isEqual:strongSelf.imageURL]) {
-                LoadImage(image, strongSelf.bounds.size, strongSelf.contentScaleFactor, ^(UIImage *loadedImage) {
+                // The view might not yet be associated with a window, in which case
+                // the view will always return 1 for contentScaleFactor.
+                CGFloat scaleFactor = [[UIScreen mainScreen] scale];
+                LoadImage(image, strongSelf.bounds.size, scaleFactor, ^(UIImage *loadedImage) {
                     if ([imageURL isEqual:weakSelf.imageURL]) {
                         weakSelf.image = loadedImage;
                     }
