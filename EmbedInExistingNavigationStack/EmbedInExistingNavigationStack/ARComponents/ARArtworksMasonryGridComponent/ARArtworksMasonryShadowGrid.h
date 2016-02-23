@@ -11,9 +11,7 @@
 
 @interface ARArtworksMasonryShadowGrid : RCTShadowView
 
-// TODO Changing direction is untested.
 @property (nonatomic, assign) NSInteger direction;
-
 @property (nonatomic, assign) NSUInteger rank;
 @property (nonatomic, assign) CGFloat dimensionLength;
 @property (nonatomic, assign) UIEdgeInsets contentInset;

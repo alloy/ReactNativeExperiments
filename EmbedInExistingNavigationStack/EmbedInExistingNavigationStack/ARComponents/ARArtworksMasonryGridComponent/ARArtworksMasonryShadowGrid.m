@@ -20,29 +20,11 @@
 @property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
 @end
 
-@implementation ARArtworksMasonryShadowGrid
-
-- (instancetype)init;
-{
-    if ((self = [super init])) {
-        _controller = [ARArtworksMasonryGridComponentController new];
-    }
-    return self;
-}
-
-- (ARCollectionViewMasonryLayout *)layout;
-{
-    return (ARCollectionViewMasonryLayout *)self.controller.collectionView.collectionViewLayout;
-}
-
-#pragma mark - React Shadow View
-
 // This is only called if the view has to determine its own height, which does not happen when:
 // * An explicit style height is set
 // * A style like `flex: 1` is set
 //
-static css_dim_t
-RCTMeasure(void *context, float width, float height)
+static css_dim_t RCTMeasure(void *context, float width, float height)
 {
     ARArtworksMasonryShadowGrid *shadowGrid = (__bridge ARArtworksMasonryShadowGrid *)context;
     UICollectionView *collectionView = shadowGrid.controller.collectionView;
@@ -53,7 +35,7 @@ RCTMeasure(void *context, float width, float height)
     collectionView.frame = frame;
     [layout prepareLayout];
     CGSize size = layout.collectionViewContentSize;
-    
+
     css_dim_t result;
     if (width != NAN) {
         result.dimensions[CSS_WIDTH] = size.width;
@@ -61,8 +43,24 @@ RCTMeasure(void *context, float width, float height)
     } else {
         NSCAssert(NO, @"TODO when does this happen?");
     }
-    
+
     return result;
+}
+
+@implementation ARArtworksMasonryShadowGrid
+
+- (instancetype)init;
+{
+    if ((self = [super init])) {
+        _controller = [ARArtworksMasonryGridComponentController new];
+    }
+    return self;
+}
+
+- (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
+{
+    _artworks = artworks;
+    self.controller.artworks = artworks;
 }
 
 - (void)fillCSSNode:(css_node_t *)node
@@ -83,71 +81,6 @@ RCTMeasure(void *context, float width, float height)
     }];
 
     return parentProperties;
-}
-
-#pragma mark - Bridged properties
-
-- (NSArray<NSDictionary *> *)artworks;
-{
-    return self.controller.artworks;
-}
-
-- (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
-{
-    self.controller.artworks = artworks;
-}
-
-- (NSInteger)direction;
-{
-    return self.layout.direction;
-}
-
-- (void)setDirection:(NSInteger)direction;
-{
-    if (direction != self.direction) {
-        ARCollectionViewMasonryLayout *layout = [[ARCollectionViewMasonryLayout alloc] initWithDirection:direction];
-        self.controller.collectionView.collectionViewLayout = layout;
-    }
-}
-
-- (NSUInteger)rank;
-{
-    return self.layout.rank;
-}
-
-- (void)setRank:(NSUInteger)rank;
-{
-    self.layout.rank = rank;
-}
-
-- (CGFloat)dimensionLength;
-{
-    return self.layout.dimensionLength;
-}
-
-- (void)setDimensionLength:(CGFloat)dimensionLength;
-{
-    self.layout.dimensionLength = dimensionLength;
-}
-
-- (UIEdgeInsets)contentInset;
-{
-    return self.layout.contentInset;
-}
-
-- (void)setContentInset:(UIEdgeInsets)contentInset;
-{
-    self.layout.contentInset = contentInset;
-}
-
-- (CGSize)itemMargins;
-{
-    return self.layout.itemMargins;
-}
-
-- (void)setItemMargins:(CGSize)itemMargins;
-{
-    self.layout.itemMargins = itemMargins;
 }
 
 @end
