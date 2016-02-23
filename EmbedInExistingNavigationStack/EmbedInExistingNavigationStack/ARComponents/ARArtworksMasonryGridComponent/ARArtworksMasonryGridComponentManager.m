@@ -16,7 +16,7 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view;
 {
-    return [[ARArtworksMasonryGridComponent alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
+    return [[ARArtworksMasonryGridComponent alloc] initWithBridge:self.bridge];
 }
 
 - (RCTShadowView *)shadowView;
@@ -24,16 +24,12 @@ RCT_EXPORT_MODULE();
     return [ARArtworksMasonryShadowGrid new];
 }
 
+RCT_EXPORT_VIEW_PROPERTY(artworks, NSArray);
+RCT_EXPORT_VIEW_PROPERTY(rank, NSUInteger);
 RCT_EXPORT_VIEW_PROPERTY(direction, NSInteger);
 RCT_EXPORT_VIEW_PROPERTY(dimensionLength, CGFloat);
 RCT_EXPORT_VIEW_PROPERTY(contentInset, UIEdgeInsets);
 RCT_EXPORT_VIEW_PROPERTY(itemMargins, CGSize);
-
-//RCT_EXPORT_VIEW_PROPERTY(rank, NSUInteger);
-//RCT_EXPORT_VIEW_PROPERTY(artworks, NSArray);
-
-RCT_EXPORT_SHADOW_PROPERTY(rank, NSUInteger);
-RCT_EXPORT_SHADOW_PROPERTY(artworks, NSArray)
 
 @end
 

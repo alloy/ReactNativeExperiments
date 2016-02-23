@@ -12,42 +12,62 @@
 #import <ARCollectionViewMasonryLayout/ARCollectionViewMasonryLayout.h>
 
 #import <React/UIView+React.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTBridge.h>
+#import <React/RCTUIManager.h>
 
 @interface ARArtworksMasonryGridComponent ()
-@property (nonatomic, weak) RCTEventDispatcher *eventDispatcher;
-//@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
-@end
+  @property (nonatomic, weak) RCTBridge *bridge;
+  @property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
+  @end
 
-@implementation ARArtworksMasonryGridComponent
+  static char ContentSizeContext;
 
-- (void)dealloc;
+  @implementation ARArtworksMasonryGridComponent
+
+  - (void)dealloc;
 {
+  [_controller.view removeObserver:self forKeyPath:@"contentSize" context:&ContentSizeContext];
   // _controller.delegate = nil;
   [_controller removeFromParentViewController];
 }
 
-- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
+- (instancetype)initWithBridge:(RCTBridge *)bridge;
 {
   if ((self = [super init])) {
-    _eventDispatcher = eventDispatcher;
+    _bridge = bridge;
 
-//    _controller = [ARArtworksMasonryGridComponentController new];
+    _controller = [ARArtworksMasonryGridComponentController new];
     // _controller.delegate = self;
-//    _controller.view.frame = self.bounds;
-//    _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    [self addSubview:_controller.view];
+    _controller.view.frame = self.bounds;
+    _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self addSubview:_controller.view];
+
+    [_controller.view addObserver:self
+                       forKeyPath:@"contentSize"
+                          options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                          context:&ContentSizeContext];
   }
   return self;
 }
 
-- (void)setController:(ARArtworksMasonryGridComponentController *)controller;
+// TODO We currently only deal with vertical grids.
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
 {
-    _controller = controller;
-//     _controller.delegate = self;
-    _controller.view.frame = self.bounds;
-    _controller.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self addSubview:_controller.view];
+  if (context == &ContentSizeContext) {
+    CGSize oldSize = [change[NSKeyValueChangeOldKey] CGSizeValue];
+    CGSize newSize = [change[NSKeyValueChangeNewKey] CGSizeValue];
+    if (!CGSizeEqualToSize(oldSize, newSize)) {
+      [self.bridge.uiManager setFrame:CGRectMake(NAN, NAN, NAN, newSize.height) forView:self];
+    }
+  } else {
+    [super observeValueForKeyPath:keyPath
+                         ofObject:object
+                           change:change
+                          context:context];
+  }
 }
 
 - (ARCollectionViewMasonryLayout *)layout;
@@ -55,22 +75,16 @@
   return (ARCollectionViewMasonryLayout *)self.controller.collectionView.collectionViewLayout;
 }
 
-//- (void)layoutSubviews;
-//{
-//    [super layoutSubviews];
-//    NSLog(@"HIER");
-//}
-
 #pragma mark - Bridged properties
 
 - (NSArray<NSDictionary *> *)artworks;
 {
-    return self.controller.artworks;
+  return self.controller.artworks;
 }
 
 - (void)setArtworks:(NSArray<NSDictionary *> *)artworks;
 {
-    self.controller.artworks = artworks;
+  self.controller.artworks = artworks;
 }
 
 - (NSInteger)direction;
@@ -131,21 +145,21 @@
 // TODO To allow or not to allow?
 - (void)insertReactSubview:(UIView *)view atIndex:(NSInteger)atIndex
 {
-    NSAssert(NO, @"It is unexpected that subviews would be added to %@", self.class);
+  NSAssert(NO, @"It is unexpected that subviews would be added to %@", self.class);
 }
 
 - (UIViewController *)reactViewController
 {
-    return self.controller;
+  return self.controller;
 }
 
 - (void)reactBridgeDidFinishTransaction
 {
-    // Taken from RCTTabBar.m:
-    //
-    // we can't hook up the VC hierarchy in 'init' because the subviews aren't
-    // hooked up yet, so we do it on demand here whenever a transaction has finished
-    [self reactAddControllerToClosestParent:self.controller];
+  // Taken from RCTTabBar.m:
+  //
+  // we can't hook up the VC hierarchy in 'init' because the subviews aren't
+  // hooked up yet, so we do it on demand here whenever a transaction has finished
+  [self reactAddControllerToClosestParent:self.controller];
 }
 
 @end

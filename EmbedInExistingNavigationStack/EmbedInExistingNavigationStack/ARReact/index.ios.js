@@ -75,8 +75,8 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
-        <Text>This should be just below the grid!</Text>
+          <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+          <Text>This should be just below the grid!</Text>
       </View>
     );
   }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class RCTEventDispatcher, ARArtworksMasonryGridComponentController;
+@class RCTBridge, ARArtworksMasonryGridComponentController;
 
 @interface ARArtworksMasonryGridComponent : UIView
 
@@ -20,9 +20,7 @@
 
 @property (nonatomic, copy) NSArray<NSDictionary *> *artworks;
 
-@property (nonatomic, strong) ARArtworksMasonryGridComponentController *controller;
-
-- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
+- (instancetype)initWithBridge:(RCTBridge *)bridge;
 
 @end
 
