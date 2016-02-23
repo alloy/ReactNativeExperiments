@@ -125,7 +125,7 @@ HeightForString(NSTextStorage *textStorage, NSAttributedString *attributedString
     self.cellFrames = *cellFrames;
 
     self.imageView.frame = cellFrames->imageView;
-    [self.imageView loadImageFromURL:[NSURL URLWithString:artwork[@"image"][@"url"]]];
+    [self.imageView loadImageFromURL:[NSURL URLWithString:artwork[@"image"][@"resized"][@"url"]]];
 
     self.artistName = ArtworkTitleAttributedString(artwork[@"artist"][@"name"]);
 

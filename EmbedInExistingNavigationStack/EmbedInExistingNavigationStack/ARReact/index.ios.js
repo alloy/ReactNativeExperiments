@@ -16,8 +16,11 @@ var {
 //      title
 //      sale_message
 //      image {
-//        url
 //        aspect_ratio
+//        // This is for retina, we display at 120 width
+//        resized(width: 240) {
+//          url
+//        }
 //      }
 //      artist {
 //        name
@@ -28,13 +31,6 @@ var {
 //    }
 //  }
 //}
-//
-// We can add the following to image and dowload less data:
-//
-// resized(width: 120) {
-//   url
-// }
-
 let artworks = require('./artworks.json');
 
 var styles = React.StyleSheet.create({
@@ -79,7 +75,7 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-        <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={2} dimensionLength={150} itemMargins={{ width: 20, height: 10 }} />
+        <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
         <Text>This should be just below the grid!</Text>
       </View>
     );
