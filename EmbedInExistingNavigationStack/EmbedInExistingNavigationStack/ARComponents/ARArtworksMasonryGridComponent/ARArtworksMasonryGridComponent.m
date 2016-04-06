@@ -60,7 +60,8 @@
     CGSize oldSize = [change[NSKeyValueChangeOldKey] CGSizeValue];
     CGSize newSize = [change[NSKeyValueChangeNewKey] CGSizeValue];
     if (!CGSizeEqualToSize(oldSize, newSize)) {
-      [self.bridge.uiManager setFrame:CGRectMake(NAN, NAN, NAN, newSize.height) forView:self];
+      [self.bridge.uiManager setIntrinsicContentSize:CGSizeMake(UIViewNoIntrinsicMetric, newSize.height)
+                                             forView:self];
     }
   } else {
     [super observeValueForKeyPath:keyPath
