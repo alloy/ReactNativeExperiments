@@ -57,6 +57,7 @@
 		5103AB791C79095400FA2EA5 /* ARArtworksMasonryGridComponentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARArtworksMasonryGridComponentCell.h; sourceTree = "<group>"; };
 		5103AB7A1C79095400FA2EA5 /* ARArtworksMasonryGridComponentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARArtworksMasonryGridComponentCell.m; sourceTree = "<group>"; };
 		5103AB7C1C790B9B00FA2EA5 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.ios.js; sourceTree = "<group>"; };
+		511287911C8B17C900936CBC /* artworks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artworks.json; sourceTree = "<group>"; };
 		5122D4771C70B7670012EDD1 /* EmbedInExistingNavigationStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmbedInExistingNavigationStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5122D47B1C70B7670012EDD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5122D47D1C70B7670012EDD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -195,8 +196,8 @@
 		5122D4911C70BE0C0012EDD1 /* ARReact */ = {
 			isa = PBXGroup;
 			children = (
-				5122D4A91C72A8960012EDD1 /* ARImage */,
 				5122D4971C70D3E60012EDD1 /* index.ios.js */,
+				511287911C8B17C900936CBC /* artworks.json */,
 				5122D4921C70BE3F0012EDD1 /* RootComponentViewController.h */,
 				5122D4931C70BE3F0012EDD1 /* RootComponentViewController.m */,
 				5122D49A1C720DE20012EDD1 /* ARNavigatorModule.h */,
@@ -230,13 +231,6 @@
 				5122D4A71C72A09A0012EDD1 /* ARImageView.m */,
 				5122D5511C777CC60012EDD1 /* ARShadowImageView.h */,
 				5122D5521C777CC60012EDD1 /* ARShadowImageView.m */,
-			);
-			path = ARImage;
-			sourceTree = "<group>";
-		};
-		5122D4A91C72A8960012EDD1 /* ARImage */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = ARImage;
 			sourceTree = "<group>";
