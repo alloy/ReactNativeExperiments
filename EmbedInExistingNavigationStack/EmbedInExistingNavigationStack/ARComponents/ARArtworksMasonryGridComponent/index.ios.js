@@ -25,27 +25,30 @@
 // * Figure out why `export { ARArtworksMasonryGrid }` did not work.
 //
 
-import * as React from 'react-native';
+import React from 'react-native';
+import Relay from 'react-relay';
 
 var NativeGrid = React.requireNativeComponent('ARArtworksMasonryGridComponent', ARArtworksMasonryGrid);
 
 class ARArtworksMasonryGrid extends React.Component {
   static propTypes = {
-    artworks: React.PropTypes.arrayOf(React.PropTypes.shape({
-      title: React.PropTypes.string,
-      sale_message: React.PropTypes.string,
-      image: React.PropTypes.shape({
-        url: React.PropTypes.string,
-        // TODO: The React convention seems to be to use camelCase, but metaphysics uses snake_case.
-        aspect_ratio: React.PropTypes.number,
-      }),
-      artist: React.PropTypes.shape({
-        name: React.PropTypes.string,
-      }),
-      partner: React.PropTypes.shape({
-        name: React.PropTypes.string,
-      }),
-    })),
+    artist: React.PropTypes.shape({
+      artworks: React.PropTypes.arrayOf(React.PropTypes.shape({
+        title: React.PropTypes.string,
+        sale_message: React.PropTypes.string,
+        image: React.PropTypes.shape({
+          url: React.PropTypes.string,
+          // TODO: The React convention seems to be to use camelCase, but metaphysics uses snake_case.
+          aspect_ratio: React.PropTypes.number,
+        }),
+        artist: React.PropTypes.shape({
+          name: React.PropTypes.string,
+        }),
+        partner: React.PropTypes.shape({
+          name: React.PropTypes.string,
+        }),
+      })),
+    }),
 
     direction: React.PropTypes.number,
     rank: React.PropTypes.number,
@@ -58,9 +61,42 @@ class ARArtworksMasonryGrid extends React.Component {
   }
 
   render() {
-    return <NativeGrid {...this.props} />;
+    // Need to split this up, because the query fragment currently operates on the artist, not just artworks (see below)
+    let { artist, ...props } = this.props;
+    return <NativeGrid artworks={artist.artworks} {...props} />;
   }
 }
 
-module.exports = ARArtworksMasonryGrid;
+export default Relay.createContainer(ARArtworksMasonryGrid, {
+  initialVariables: {
+    page: 1
+  },
 
+  prepareVariables({ page }) {
+    return { size: page * 10 };
+  },
+
+  // TODO Can we have a fragment of just the artworks, instead of the artist with its artworks?
+  fragments: {
+    artist: () => Relay.QL`
+      fragment on Artist {
+        artworks(size: $size) {
+          title
+          sale_message
+          image {
+            aspect_ratio
+            resized(width: 240) {
+              url
+            }
+          }
+          artist {
+            name
+          }
+          partner {
+            name
+          }
+        }
+      }
+    `,
+  },
+});

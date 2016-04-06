@@ -1,37 +1,40 @@
 'use strict';
 
-var React = require('react-native');
-var {
+
+
+
+import Relay from 'react-relay';
+
+Relay.injectNetworkLayer(
+  new Relay.DefaultNetworkLayer('https://metaphysics-staging.artsy.net')
+);
+
+class ArtistRoute extends Relay.Route {
+  static queries = {
+    artist: () => Relay.QL`
+      query { artist(id: $artistID) }
+    `,
+  };
+
+  static paramDefinitions = {
+    artistID: { required: true },
+  };
+
+  static routeName = 'ArtistRoute';
+}
+
+let banksyRoute = new ArtistRoute({ artistID: 'banksy' });
+
+
+
+
+import React, {
   Text,
   TouchableHighlight,
   View,
   ScrollView,
   NativeModules,
-} = React;
-
-
-//{
-//  artist(id: "banksy") {
-//    artworks(size: 10) {
-//      title
-//      sale_message
-//      image {
-//        aspect_ratio
-//        // This is for retina, we display at 120 width
-//        resized(width: 240) {
-//          url
-//        }
-//      }
-//      artist {
-//        name
-//      }
-//      partner {
-//        name
-//      }
-//    }
-//  }
-//}
-let artworks = require('./artworks.json');
+} from 'react-native';
 
 var styles = React.StyleSheet.create({
   container: {
@@ -45,10 +48,9 @@ var styles = React.StyleSheet.create({
 
 // TODO: I tried adding the components dir to the package manager with the `--root` option,
 //       but to no avail, so using this relative style for now.
-//let ARMasonryGridComponent = require('../ARComponents/ARMasonryGridComponent');
-//let ARMasonry = require('../ARComponents/ARNativeEigenMasonryGridComponent');
-//ARMasonry();
-let ARArtworksMasonryGrid = require('../ARComponents/ARArtworksMasonryGridComponent');
+import ARArtworksMasonryGrid from '../ARComponents/ARArtworksMasonryGridComponent';
+//debugger;
+
 
 
 class SimpleApp extends React.Component {
@@ -78,18 +80,18 @@ class SimpleApp extends React.Component {
 
         {/* This makes the collection view have the full content height, so the label underneath is shown when scrolled to the bottom.
         <ScrollView>
-          <ARArtworksMasonryGrid artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+          <ARArtworksMasonryGrid artist={this.props.artist} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
           <Text>This should be just below the grid!</Text>
         </ScrollView>
         */}
 
         {/* This makes the collection view have a height of 300 points, and shows the label directly underneath it.
-        <ARArtworksMasonryGrid style={{ height: 300 }} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+        <ARArtworksMasonryGrid style={{ height: 300 }} artist={this.props.artist} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
         <Text>This should be just below the grid!</Text>
         */}
 
         {/* This makes the collection view fill the available height, while leaving place for the label underneath it.
-        <ARArtworksMasonryGrid style={{ flex: 1 }} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+        <ARArtworksMasonryGrid style={{ flex: 1 }} artist={this.props.artist} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
         <Text>This should be just below the grid!</Text>
         */}
 
@@ -98,4 +100,20 @@ class SimpleApp extends React.Component {
   }
 }
 
-React.AppRegistry.registerComponent('SimpleApp', () => SimpleApp);
+let SimpleAppContainer = Relay.createContainer(SimpleApp, {
+  fragments: {
+    artist: () => Relay.QL`
+      fragment on Artist {
+        ${ARArtworksMasonryGrid.getFragment('artist')}
+      }
+    `,
+  }
+});
+
+class SimpleRelayApp extends React.Component {
+  render() {
+    return <Relay.RootContainer Component={SimpleAppContainer} route={banksyRoute} />;
+  }
+}
+
+React.AppRegistry.registerComponent('SimpleApp', () => SimpleRelayApp);
