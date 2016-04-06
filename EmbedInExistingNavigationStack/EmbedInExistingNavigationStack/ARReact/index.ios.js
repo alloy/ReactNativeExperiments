@@ -75,8 +75,24 @@ class SimpleApp extends React.Component {
         <TouchableHighlight onPress={this.pushNativeViewController.bind(this)}>
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
-          <ARArtworksMasonryGrid style={{flex: 1}} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+
+        {/* This makes the collection view have the full content height, so the label underneath is shown when scrolled to the bottom.
+        <ScrollView>
+          <ARArtworksMasonryGrid artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
           <Text>This should be just below the grid!</Text>
+        </ScrollView>
+        */}
+
+        {/* This makes the collection view have a height of 300 points, and shows the label directly underneath it.
+        <ARArtworksMasonryGrid style={{ height: 300 }} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+        <Text>This should be just below the grid!</Text>
+        */}
+
+        {/* This makes the collection view fill the available height, while leaving place for the label underneath it.
+        <ARArtworksMasonryGrid style={{ flex: 1 }} artworks={artworks} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
+        <Text>This should be just below the grid!</Text>
+        */}
+
       </View>
     );
   }
