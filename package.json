@@ -4,8 +4,10 @@
   "description": "React Native Experimentation",
   "main": "EmbedInExistingNavigationStack/EmbedInExistingNavigationStack/ARReact/index.ios.js",
   "dependencies": {
+    "babel-relay-plugin": "^0.7.3",
     "react": "^0.14.8",
-    "react-native": "0.24.0-rc1"
+    "react-native": "0.24.0-rc1",
+    "react-relay": "^0.7.3"
   },
   "devDependencies": {},
   "scripts": {
