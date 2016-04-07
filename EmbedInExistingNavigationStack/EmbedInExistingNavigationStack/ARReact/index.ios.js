@@ -57,6 +57,7 @@ import React, {
   View,
   ScrollView,
   NativeModules,
+  ActivityIndicatorIOS,
 } from 'react-native';
 
 // Disable the native polyfill during development, which will make network requests show-up in the Chrome dev-tools.
@@ -114,12 +115,10 @@ class SimpleApp extends React.Component {
           <Text>Tap to add a Native VC to the navigation stack.</Text>
         </TouchableHighlight>
 
-        {/* This makes the collection view have the full content height, so the label underneath is shown when scrolled to the bottom.
         <ScrollView>
           <ARArtworksMasonryGrid artist={this.props.artist} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
           <Text>This should be just below the grid!</Text>
         </ScrollView>
-        */}
 
         {/* This makes the collection view have a height of 300 points, and shows the label directly underneath it.
         <ARArtworksMasonryGrid style={{ height: 300 }} artist={this.props.artist} rank={3} dimensionLength={120} itemMargins={{ width: 20, height: 10 }} />
@@ -148,7 +147,17 @@ let SimpleAppContainer = Relay.createContainer(SimpleApp, {
 
 class SimpleRelayApp extends React.Component {
   render() {
-    return <Relay.RootContainer Component={SimpleAppContainer} route={banksyRoute} />;
+    return <Relay.RootContainer
+             Component={SimpleAppContainer}
+             route={banksyRoute}
+             renderLoading={function() {
+               return <ActivityIndicatorIOS
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+                        size="large"
+                        color="black"
+                      />;
+             }}
+           />;
   }
 }
 
