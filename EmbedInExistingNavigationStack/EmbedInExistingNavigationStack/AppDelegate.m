@@ -27,7 +27,7 @@
     // We initialize the ReactNative bridge here for performance, so that it’s all loaded by the time we
     // try to load a React component.
 #ifdef DEBUG
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/EmbedInExistingNavigationStack/EmbedInExistingNavigationStack/ARReact/index.ios.bundle?platform=ios&dev=true"];
 #else
     NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

@@ -1,15 +1,8 @@
 {
   "env": {
     "development": {
-      "passPerPreset": true,
-      "presets": [
-        {
-          "plugins": [
-            "./babelRelayPlugin"
-          ]
-        },
-        "react-native"
-      ]
+      "plugins": ["babel-relay-plugin-loader"],
+      "presets": ["react-native"]
     }
   }
 }
