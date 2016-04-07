@@ -9,6 +9,29 @@ Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('https://metaphysics-staging.artsy.net')
 );
 
+// if (!__DEV__) {
+//   Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer('https://metaphysics-staging.artsy.net'));
+// } else {
+//   let printRelayQuery = require('react-relay/lib/printRelayQuery');
+//   class DebugNetworkLayer extends Relay.DefaultNetworkLayer {
+//     sendQueries(requests) {
+//       requests.forEach(request => {
+//         let originalResolve = request.resolve;
+//         request.resolve = data => {
+//           console.log(data);
+//           originalResolve(data);
+//         }
+//         console.log('[RELAY Request] ' + printRelayQuery(request._query).text);
+//       })
+//       return super.sendQueries(requests);
+//     }
+//   }
+//   Relay.injectNetworkLayer(new DebugNetworkLayer('https://metaphysics-staging.artsy.net'));
+// }
+
+
+
+
 class ArtistRoute extends Relay.Route {
   static queries = {
     artist: () => Relay.QL`
@@ -35,6 +58,19 @@ import React, {
   ScrollView,
   NativeModules,
 } from 'react-native';
+
+// Disable the native polyfill during development, which will make network requests show-up in the Chrome dev-tools.
+// Specifically, in our case, we get to see the Relay requests.
+//
+// It will be `undefined` unless running inside Chrome.
+//
+// See:
+// * https://github.com/facebook/react-native/blob/2d0051f21371e8a51fde836c62a474a941023dd4/Libraries/JavaScriptAppEngine/Initialization/InitializeJavaScriptAppEngine.js#L41-L56
+// * https://github.com/facebook/react-native/issues/934
+//
+if (__DEV__ && global.originalXMLHttpRequest != undefined) {
+  global.XMLHttpRequest = global.originalXMLHttpRequest;
+}
 
 var styles = React.StyleSheet.create({
   container: {
