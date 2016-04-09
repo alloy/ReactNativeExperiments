@@ -7,6 +7,9 @@ import Relay from 'react-relay';
 
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('https://metaphysics-staging.artsy.net')
+    // headers: {
+    //   Authorization: 'Basic SSdsbCBmaW5kIHNvbWV0aGluZyB0byBwdXQgaGVyZQ==',
+    // })
 );
 
 // if (!__DEV__) {
@@ -147,15 +150,19 @@ let SimpleAppContainer = Relay.createContainer(SimpleApp, {
 
 class SimpleRelayApp extends React.Component {
   render() {
+    // https://facebook.github.io/relay/docs/guides-root-container.html
     return <Relay.RootContainer
              Component={SimpleAppContainer}
              route={banksyRoute}
-             renderLoading={function() {
+             renderLoading={() => {
                return <ActivityIndicatorIOS
                         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
                         size="large"
                         color="black"
                       />;
+             }}
+             renderFailure={(error, retry) => {
+               return <Text>Failed to load.</Text>
              }}
            />;
   }
